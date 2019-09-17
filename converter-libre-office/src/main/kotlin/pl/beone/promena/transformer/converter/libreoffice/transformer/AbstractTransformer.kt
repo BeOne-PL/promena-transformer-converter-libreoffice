@@ -8,10 +8,10 @@ import pl.beone.promena.transformer.contract.data.singleTransformedDataDescripto
 import pl.beone.promena.transformer.contract.model.Data
 import pl.beone.promena.transformer.contract.model.Parameters
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerCoordinator
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.DocumentFormatManager
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.registry.ApplicationHtmlDocumentFormat
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.registry.ApplicationRtfDocumentFormat
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.registry.TextXmlDocumentFormat
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.DocumentFormatManager
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.ApplicationHtmlDocumentFormat
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.ApplicationRtfDocumentFormat
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.TextXmlDocumentFormat
 import java.io.OutputStream
 
 internal abstract class AbstractTransformer(
@@ -40,7 +40,7 @@ internal abstract class AbstractTransformer(
                 LocalConverter.make(officeManagerCoordinator.getManager())
                     .convert(inputStream)
                     .`as`(DocumentFormatManager.getDocumentFormat(mediaType))
-                    .to(outputStream, true)
+                    .to(outputStream, false)
                     .`as`(DocumentFormatManager.getDocumentFormat(targetMediaType))
                     .execute()
             }

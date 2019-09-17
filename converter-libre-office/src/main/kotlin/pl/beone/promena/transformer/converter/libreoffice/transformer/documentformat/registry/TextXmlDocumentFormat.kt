@@ -1,14 +1,14 @@
-package pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.registry
+package pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry
 
 import org.jodconverter.document.DefaultDocumentFormatRegistry
 import org.jodconverter.document.DocumentFormat
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants
 
-internal class ApplicationRtfDocumentFormat : AbstractDocumentFormat() {
+internal class TextXmlDocumentFormat : AbstractDocumentFormat() {
 
     override fun create(): DocumentFormat =
         createDocumentFormatBasedOn(
-            DefaultDocumentFormatRegistry.RTF,
-            MediaTypeConstants.APPLICATION_RTF.mimeType
+            DefaultDocumentFormatRegistry.TXT,
+            MediaTypeConstants.TEXT_XML.mimeType
         )
 }

@@ -77,14 +77,6 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
         )
     }
 
-    @Test
-    fun transform_fromTextXmlWithTagsToApplicationPdf() {
-        memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.XML_WITH_TAGS),
-            MediaTypeConstants.TEXT_XML
-        )
-    }
-
     // ***
 
     @Test
