@@ -1,8 +1,6 @@
 package pl.beone.promena.transformer.converter.libreoffice.transformer
 
 import org.jodconverter.LocalConverter
-import org.jodconverter.document.DefaultDocumentFormatRegistry
-import org.jodconverter.document.DocumentFormat
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.contract.data.DataDescriptor
 import pl.beone.promena.transformer.contract.data.TransformedDataDescriptor
@@ -10,37 +8,44 @@ import pl.beone.promena.transformer.contract.data.singleTransformedDataDescripto
 import pl.beone.promena.transformer.contract.model.Data
 import pl.beone.promena.transformer.contract.model.Parameters
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerCoordinator
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.DocumentFormatManager
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.registry.ApplicationHtmlDocumentFormat
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.registry.ApplicationRtfDocumentFormat
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformatregistry.registry.TextXmlDocumentFormat
 import java.io.OutputStream
 
 internal abstract class AbstractTransformer(
     private val officeManagerCoordinator: OfficeManagerCoordinator
 ) {
 
+    companion object {
+        val additionalDocumentFormats = listOf(
+            ApplicationHtmlDocumentFormat(),
+            ApplicationRtfDocumentFormat(),
+            TextXmlDocumentFormat()
+        )
+    }
+
     protected abstract fun getOutputStream(): OutputStream
 
     protected abstract fun createData(): Data
 
     fun transform(singleDataDescriptor: DataDescriptor.Single, targetMediaType: MediaType, parameters: Parameters): TransformedDataDescriptor.Single {
+        DocumentFormatManager.register(additionalDocumentFormats)
+
         val (data, mediaType, metadata) = singleDataDescriptor
 
         data.getInputStream().use { inputStream ->
             getOutputStream().use { outputStream ->
                 LocalConverter.make(officeManagerCoordinator.getManager())
                     .convert(inputStream)
-                    .`as`(determineDocumentFormat(mediaType))
+                    .`as`(DocumentFormatManager.getDocumentFormat(mediaType))
                     .to(outputStream, true)
-                    .`as`(determineDocumentFormat(targetMediaType))
+                    .`as`(DocumentFormatManager.getDocumentFormat(targetMediaType))
                     .execute()
             }
         }
 
         return singleTransformedDataDescriptor(createData(), metadata)
     }
-
-    private fun determineDocumentFormat(mediaType: MediaType): DocumentFormat =
-        try {
-            DefaultDocumentFormatRegistry.getFormatByMediaType(mediaType.mimeType)
-        } catch (e: Exception) {
-            throw IllegalStateException("There is no DocumentFormat in registry for <$mediaType>")
-        }
 }
