@@ -2,6 +2,7 @@ package pl.beone.promena.transformer.converter.libreoffice
 
 import io.kotlintest.matchers.collections.shouldHaveSize
 import io.kotlintest.matchers.instanceOf
+import io.kotlintest.matchers.string.shouldContain
 import io.kotlintest.matchers.withClue
 import io.kotlintest.shouldBe
 import org.apache.pdfbox.pdmodel.PDDocument
@@ -52,7 +53,7 @@ internal fun test(
 
             transformedDataDescriptor.descriptors[0].let {
                 withClue("Transformed data should be instance of <$dataClass>") { it.data shouldBe instanceOf(dataClass) }
-                it.data.readText() shouldBe assertText
+                it.data.readText() shouldContain assertText
                 it.metadata shouldBe emptyMetadata()
             }
         }
@@ -60,5 +61,5 @@ internal fun test(
 
 private fun Data.readText(): String =
     PDDocument.load(getInputStream()).use { document ->
-        PDFTextStripper().getText(document).trim()
+        PDFTextStripper().getText(document)
     }

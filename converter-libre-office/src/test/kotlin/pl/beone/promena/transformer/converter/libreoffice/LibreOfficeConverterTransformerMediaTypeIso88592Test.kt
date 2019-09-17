@@ -3,18 +3,20 @@ package pl.beone.promena.transformer.converter.libreoffice
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import pl.beone.lib.junit5.extension.docker.external.DockerExtension
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource
 import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
+import java.nio.charset.Charset
 
 @ExtendWith(DockerExtension::class)
-class LibreOfficeConverterTransformerTest {
+class LibreOfficeConverterTransformerMediaTypeIso88592Test {
 
     @Test
-    fun transform_fromTextPlainUTF8ToApplicationPdfUTF8() {
+    fun transform_fromTextPlainToApplicationPdf() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.TXT),
-            TEXT_PLAIN
+            getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.TXT),
+            MediaType.of(TEXT_PLAIN.mimeType, Charset.forName("ISO-8859-2"))
         )
     }
 }

@@ -22,15 +22,15 @@ object Resource {
             }
 
             object Spreadsheet {
-                const val ODS = "/document/UTF-8/presentation/test.ods"
-                const val XLS = "/document/UTF-8/presentation/test.xls"
-                const val XLSX = "/document/UTF-8/presentation/test.xlsx"
+                const val ODS = "/document/UTF-8/spreadsheet/test.ods"
+                const val XLS = "/document/UTF-8/spreadsheet/test.xls"
+                const val XLSX = "/document/UTF-8/spreadsheet/test.xlsx"
             }
 
             object Text {
-                const val ODT = "/document/UTF-8/presentation/test.odt"
-                const val DOC = "/document/UTF-8/presentation/test.doc"
-                const val DOCX = "/document/UTF-8/presentation/test.docx"
+                const val ODT = "/document/UTF-8/text/test.odt"
+                const val DOC = "/document/UTF-8/text/test.doc"
+                const val DOCX = "/document/UTF-8/text/test.docx"
             }
         }
 
