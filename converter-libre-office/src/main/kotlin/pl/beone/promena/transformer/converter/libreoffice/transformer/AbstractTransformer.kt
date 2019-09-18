@@ -8,7 +8,7 @@ import pl.beone.promena.transformer.contract.data.singleTransformedDataDescripto
 import pl.beone.promena.transformer.contract.model.Data
 import pl.beone.promena.transformer.contract.model.Parameters
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerCoordinator
-import pl.beone.promena.transformer.converter.libreoffice.transformer.dataprocessor.TextPlainOtherThanUtf8DataProcessor
+import pl.beone.promena.transformer.converter.libreoffice.transformer.dataprocessor.TextPlainAndTextCsvOtherThanUtf8DataProcessor
 import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.DocumentFormatManager
 import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.*
 import java.io.OutputStream
@@ -35,7 +35,7 @@ internal abstract class AbstractTransformer(
         )
 
         val dataProcessors = listOf(
-            TextPlainOtherThanUtf8DataProcessor()
+            TextPlainAndTextCsvOtherThanUtf8DataProcessor()
         )
     }
 

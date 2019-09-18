@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import pl.beone.lib.junit5.extension.docker.external.DockerExtension
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_CSV
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_HTML
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource
@@ -22,6 +23,14 @@ class LibreOfficeConverterTransformerMediaTypeIso88592Test {
         memoryTest(
             getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.TXT),
             MediaType.of(TEXT_PLAIN.mimeType, charset)
+        )
+    }
+
+    @Test
+    fun transform_textCsv() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.CSV),
+            MediaType.of(TEXT_CSV.mimeType, charset)
         )
     }
 

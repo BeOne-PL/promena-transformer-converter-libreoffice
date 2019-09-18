@@ -3,8 +3,9 @@ package pl.beone.promena.transformer.converter.libreoffice
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import pl.beone.lib.junit5.extension.docker.external.DockerExtension
-import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_MSWORD
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_PDF
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_RTF
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
@@ -13,8 +14,11 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstant
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_XML
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_CSV
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_HTML
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_XML
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource
 import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
 
@@ -33,7 +37,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     fun transform_textHtm() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.HTM),
-            MediaTypeConstants.TEXT_HTML
+            TEXT_HTML
         )
     }
 
@@ -41,7 +45,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     fun transform_textHtml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.HTML),
-            MediaTypeConstants.TEXT_HTML
+            TEXT_HTML
         )
     }
 
@@ -49,7 +53,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     fun transform_applicationRtf() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.RTF),
-            MediaTypeConstants.APPLICATION_RTF
+            APPLICATION_RTF
         )
     }
 
@@ -65,7 +69,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     fun transform_applicationXml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.XML),
-            MediaTypeConstants.APPLICATION_XML
+            APPLICATION_XML
         )
     }
 
@@ -73,7 +77,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     fun transform_textXml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.XML),
-            MediaTypeConstants.TEXT_XML
+            TEXT_XML
         )
     }
 
@@ -152,6 +156,14 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Text.DOCX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
+        )
+    }
+
+    @Test
+    fun transform_applicationPdf() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.UTF_8.Text.PDF),
+            APPLICATION_PDF
         )
     }
 }

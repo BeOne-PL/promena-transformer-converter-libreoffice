@@ -111,6 +111,7 @@ object Resource {
                 const val ODT = "/document/UTF-8/text/test.odt"
                 const val DOC = "/document/UTF-8/text/test.doc"
                 const val DOCX = "/document/UTF-8/text/test.docx"
+                const val PDF = "/document/UTF-8/text/test.pdf"
             }
         }
 
@@ -122,6 +123,7 @@ object Resource {
                 }
 
                 const val TXT = "/document/ISO-8859-2/plain/test.txt"
+                const val CSV = "/document/ISO-8859-2/plain/test.csv"
             }
         }
     }

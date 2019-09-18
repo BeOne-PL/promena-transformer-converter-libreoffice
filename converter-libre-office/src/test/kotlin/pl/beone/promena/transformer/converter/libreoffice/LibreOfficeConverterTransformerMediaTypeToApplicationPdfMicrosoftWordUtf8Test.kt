@@ -3,8 +3,8 @@ package pl.beone.promena.transformer.converter.libreoffice
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import pl.beone.lib.junit5.extension.docker.external.DockerExtension
-import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_MSWORD
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_RTF
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACRO_ENABLED_12
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACRO_ENABLED_12
@@ -22,7 +22,9 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstant
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_CSV
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_HTML
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_XML
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource
 import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
 
@@ -41,7 +43,7 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
     fun transform_textHtml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.HTML),
-            MediaTypeConstants.TEXT_HTML
+            TEXT_HTML
         )
     }
 
@@ -49,7 +51,7 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
     fun transform_textHtml2() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.HTML2),
-            MediaTypeConstants.TEXT_HTML
+            TEXT_HTML
         )
     }
 
@@ -57,7 +59,7 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
     fun transform_applicationRtf() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.RTF),
-            MediaTypeConstants.APPLICATION_RTF
+            APPLICATION_RTF
         )
     }
 
@@ -73,7 +75,7 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
     fun transform_textXml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.XML),
-            MediaTypeConstants.TEXT_XML
+            TEXT_XML
         )
     }
 
@@ -81,7 +83,7 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
     fun transform_textXml2003() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.XML_2003),
-            MediaTypeConstants.TEXT_XML
+            TEXT_XML
         )
     }
 
