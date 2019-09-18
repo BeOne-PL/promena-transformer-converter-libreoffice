@@ -9,9 +9,7 @@ import pl.beone.promena.transformer.contract.model.Data
 import pl.beone.promena.transformer.contract.model.Parameters
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerCoordinator
 import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.DocumentFormatManager
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.ApplicationHtmlDocumentFormat
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.ApplicationRtfDocumentFormat
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.TextXmlDocumentFormat
+import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.*
 import java.io.OutputStream
 
 internal abstract class AbstractTransformer(
@@ -22,7 +20,9 @@ internal abstract class AbstractTransformer(
         val additionalDocumentFormats = listOf(
             ApplicationHtmlDocumentFormat(),
             ApplicationRtfDocumentFormat(),
-            TextXmlDocumentFormat()
+            TextXmlDocumentFormat(),
+            ApplicationVndOpenxmlformatsOfficedocumentPresentationmlTemplateDocumentFormat(),
+            ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplateDocumentFormat()
         )
     }
 
