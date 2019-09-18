@@ -22,7 +22,7 @@ import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsByte
 class LibreOfficeConverterTransformerMediaTypeUtf8Test {
 
     @Test
-    fun transform_fromTextCsvToApplicationPdf() {
+    fun transform_textCsv() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.CSV),
             TEXT_CSV
@@ -30,7 +30,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromTextHtmToApplicationPdf() {
+    fun transform_textHtm() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.HTM),
             MediaTypeConstants.TEXT_HTML
@@ -38,7 +38,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromTextHtmlToApplicationPdf() {
+    fun transform_textHtml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.HTML),
             MediaTypeConstants.TEXT_HTML
@@ -46,7 +46,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationRtfToApplicationPdf() {
+    fun transform_applicationRtf() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.RTF),
             MediaTypeConstants.APPLICATION_RTF
@@ -54,7 +54,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromTextPlainToApplicationPdf() {
+    fun transform_textPlain() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.TXT),
             TEXT_PLAIN
@@ -62,7 +62,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationXmlToApplicationPdf() {
+    fun transform_applicationXml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.XML),
             MediaTypeConstants.APPLICATION_XML
@@ -70,7 +70,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromTextXmlToApplicationPdf() {
+    fun transform_textXml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.XML),
             MediaTypeConstants.TEXT_XML
@@ -80,7 +80,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     // ***
 
     @Test
-    fun transform_fromApplicationVndOasisOpendocumentPresentationToApplicationPdf() {
+    fun transform_applicationVndOasisOpendocumentPresentation() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Presentation.ODP),
             APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
@@ -88,7 +88,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndMsPowerpointToApplicationPdf() {
+    fun transform_applicationVndMsPowerpoint() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Presentation.PPT),
             APPLICATION_VND_MS_POWERPOINT
@@ -96,7 +96,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentationToApplicationPdf() {
+    fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Presentation.PPTX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
@@ -106,7 +106,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     // ***
 
     @Test
-    fun transform_fromApplicationVndOasisOpendocumentSpreadsheetToApplicationPdf() {
+    fun transform_applicationVndOasisOpendocumentSpreadsheet() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.ODS),
             APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET
@@ -114,7 +114,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndMsExcelToApplicationPdf() {
+    fun transform_applicationVndMsExcel() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.XLS),
             APPLICATION_VND_MS_EXCEL
@@ -122,7 +122,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheetToApplicationPdf() {
+    fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.XLSX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
@@ -132,7 +132,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     // ***
 
     @Test
-    fun transform_fromApplicationVndOasisOpendocumentTextToApplicationPdf() {
+    fun transform_applicationVndOasisOpendocumentText() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Text.ODT),
             APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT
@@ -140,7 +140,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationMswordToApplicationPdf() {
+    fun transform_applicationMsword() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Text.DOC),
             APPLICATION_MSWORD
@@ -148,7 +148,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocumentToApplicationPdf() {
+    fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Text.DOCX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT

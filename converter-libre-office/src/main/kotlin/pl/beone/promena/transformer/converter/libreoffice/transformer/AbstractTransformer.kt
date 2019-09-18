@@ -21,8 +21,16 @@ internal abstract class AbstractTransformer(
             ApplicationHtmlDocumentFormat(),
             ApplicationRtfDocumentFormat(),
             TextXmlDocumentFormat(),
+            ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlTemplateDocumentFormat(),
+            ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplateDocumentFormat(),
             ApplicationVndOpenxmlformatsOfficedocumentPresentationmlTemplateDocumentFormat(),
-            ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplateDocumentFormat()
+            ApplicationVndOpenxmlformatsOfficedocumentPresentationmlSlideshowDocumentFormat(),
+            ApplicationVndMsWordDocumentMacroenabled12DocumentFormat(),
+            ApplicationVndMsExcelSheetMacroEnabled12DocumentFormat(),
+            ApplicationVndMsExcelTemplateMacroEnabled12DocumentFormat(),
+            ApplicationVndMsPowerpointTemplateMacroenabled12DocumentFormat(),
+            ApplicationVndMsPowerpointPresentationMacroenabled12DocumentFormat(),
+            ApplicationVndMsPowerpointSlideshowMacroenabled12DocumentFormat()
         )
     }
 

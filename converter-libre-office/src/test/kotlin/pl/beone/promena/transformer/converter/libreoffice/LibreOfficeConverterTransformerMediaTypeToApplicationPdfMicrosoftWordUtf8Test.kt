@@ -6,11 +6,17 @@ import pl.beone.lib.junit5.extension.docker.external.DockerExtension
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_MSWORD
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACRO_ENABLED_12
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACRO_ENABLED_12
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE
@@ -24,7 +30,7 @@ import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsByte
 class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
 
     @Test
-    fun transform_fromTextCsvToApplicationPdf() {
+    fun transform_textCsv() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.CSV),
             TEXT_CSV
@@ -32,7 +38,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromTextHtmlToApplicationPdf() {
+    fun transform_textHtml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.HTML),
             MediaTypeConstants.TEXT_HTML
@@ -40,7 +46,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromTextHtmlToApplicationPdf2() {
+    fun transform_textHtml2() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.HTML2),
             MediaTypeConstants.TEXT_HTML
@@ -48,7 +54,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationRtfToApplicationPdf() {
+    fun transform_applicationRtf() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.RTF),
             MediaTypeConstants.APPLICATION_RTF
@@ -56,7 +62,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromTextPlainToApplicationPdf() {
+    fun transform_textPlain() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.TXT),
             TEXT_PLAIN
@@ -64,7 +70,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromTextXmlToApplicationPdf() {
+    fun transform_textXml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.XML),
             MediaTypeConstants.TEXT_XML
@@ -72,9 +78,9 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromTextXml2003ToApplicationPdf() {
+    fun transform_textXml2003() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.XML2003),
+            getResourceAsBytes(Resource.Path.UTF_8.Plain.MicrosoftWord.XML_2003),
             MediaTypeConstants.TEXT_XML
         )
     }
@@ -82,7 +88,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     // ***
 
     @Test
-    fun transform_fromApplicationVndOasisOpendocumentPresentationToApplicationPdf() {
+    fun transform_applicationVndOasisOpendocumentPresentation() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.ODP),
             APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
@@ -90,7 +96,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndMsPowerpointToApplicationPdf2() {
+    fun transform_applicationVndMsPowerpoint2() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.POT),
             APPLICATION_VND_MS_POWERPOINT
@@ -98,7 +104,15 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndOpenxmlformatsOfficedocumentPresentationmlTemplateToApplicationPdf() {
+    fun transform_applicationVndMsPowerpointTemplateMacroenabled12() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.POTM),
+            APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12
+        )
+    }
+
+    @Test
+    fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlTemplate() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.POTX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE
@@ -106,7 +120,31 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndMsPowerpointToApplicationPdf() {
+    fun transform_applicationVndMsPowerpoint3() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPS),
+            APPLICATION_VND_MS_POWERPOINT
+        )
+    }
+
+    @Test
+    fun transform_applicationVndMsPowerpointSlideshowMacroenabled12() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPSM),
+            APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
+        )
+    }
+
+    @Test
+    fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlSlideshow() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPSX),
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW
+        )
+    }
+
+    @Test
+    fun transform_applicationVndMsPowerpoint() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPT),
             APPLICATION_VND_MS_POWERPOINT
@@ -114,7 +152,15 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentationToApplicationPdf() {
+    fun transform_applicationVndMsPowerpointPresentationMacroenabled12() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPTM),
+            APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
+        )
+    }
+
+    @Test
+    fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPTX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
@@ -124,7 +170,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     // ***
 
     @Test
-    fun transform_fromApplicationVndOasisOpendocumentSpreadsheetToApplicationPdf() {
+    fun transform_applicationVndOasisOpendocumentSpreadsheet() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.MicrosoftExcel.ODS),
             APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET
@@ -132,7 +178,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndMsExcelToApplicationPdf() {
+    fun transform_applicationVndMsExcel() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLS),
             APPLICATION_VND_MS_EXCEL
@@ -140,7 +186,15 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheetToApplicationPdf() {
+    fun transform_applicationVndMsExcelSheetMacroEnabled12() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLSM),
+            APPLICATION_VND_MS_EXCEL_SHEET_MACRO_ENABLED_12
+        )
+    }
+
+    @Test
+    fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLSX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
@@ -148,7 +202,15 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplateToApplicationPdf() {
+    fun transform_applicationVndMsExcelTemplateMacroEnabled12() {
+        memoryTest(
+            getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLTM),
+            APPLICATION_VND_MS_EXCEL_TEMPLATE_MACRO_ENABLED_12
+        )
+    }
+
+    @Test
+    fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplate() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLTX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE
@@ -158,7 +220,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     // ***
 
     @Test
-    fun transform_fromApplicationVndOasisOpendocumentTextToApplicationPdf() {
+    fun transform_applicationVndOasisOpendocumentText() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Text.MicrosoftWord.ODT),
             APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT
@@ -166,7 +228,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationMswordToApplicationPdf() {
+    fun transform_applicationMsword() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Text.MicrosoftWord.DOC),
             APPLICATION_MSWORD
@@ -174,7 +236,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocumentToApplicationPdf() {
+    fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Text.MicrosoftWord.DOCX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
@@ -182,7 +244,7 @@ class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
     }
 
     @Test
-    fun transform_fromApplicationMswordToApplicationPdf2() {
+    fun transform_applicationMsword2() {
         memoryTest(
             getResourceAsBytes(Resource.Path.UTF_8.Text.MicrosoftWord.DOT),
             APPLICATION_MSWORD

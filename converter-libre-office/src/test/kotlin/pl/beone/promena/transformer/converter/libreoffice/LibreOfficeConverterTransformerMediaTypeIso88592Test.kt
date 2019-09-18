@@ -15,7 +15,7 @@ import java.nio.charset.Charset
 class LibreOfficeConverterTransformerMediaTypeIso88592Test {
 
     @Test
-    fun transform_fromTextPlainToApplicationPdf() {
+    fun transform_textPlain() {
         memoryTest(
             getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.TXT),
             MediaType.of(TEXT_PLAIN.mimeType, Charset.forName("ISO-8859-2"))
@@ -24,7 +24,7 @@ class LibreOfficeConverterTransformerMediaTypeIso88592Test {
 
     // Contains also charset=iso-8859-2 in meta tag. LO handles this case correctly
     @Test
-    fun transform_fromTextHtmlToApplicationPdf() {
+    fun transform_textHtml() {
         memoryTest(
             getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.COMPLEX_HTML),
             MediaType.of(TEXT_HTML.mimeType, Charset.forName("ISO-8859-2"))
