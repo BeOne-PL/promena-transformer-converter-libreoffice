@@ -5,8 +5,7 @@ import pl.beone.promena.transformer.contract.data.DataDescriptor
 
 internal class Supporter {
 
-    companion object {
-    }
+    companion object
 
     fun isSupported(dataDescriptor: DataDescriptor, targetMediaType: MediaType) {
 

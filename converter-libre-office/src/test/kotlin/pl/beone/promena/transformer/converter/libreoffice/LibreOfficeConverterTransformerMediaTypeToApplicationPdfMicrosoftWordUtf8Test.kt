@@ -27,7 +27,7 @@ import pl.beone.promena.transformer.converter.libreoffice.model.Resource
 import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
 
 @ExtendWith(DockerExtension::class)
-class LibreOfficeConverterTransformerMediaTypeMicrosoftWordUtf8Test {
+class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8Test {
 
     @Test
     fun transform_textCsv() {

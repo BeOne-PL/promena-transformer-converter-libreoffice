@@ -36,7 +36,6 @@ object Resource {
 
             object Presentation {
                 object MicrosoftPowerPoint {
-                    const val FODP = "/document/UTF-8/presentation/microsoft-power-point/test.fodp"
                     const val ODP = "/document/UTF-8/presentation/microsoft-power-point/test.odp"
                     const val POT = "/document/UTF-8/presentation/microsoft-power-point/test.pot"
                     const val POTM = "/document/UTF-8/presentation/microsoft-power-point/test.potm"
@@ -117,8 +116,12 @@ object Resource {
 
         object ISO_8859_2 {
             object Plain {
+                object LibreOfficeWriter {
+                    const val HTML = "/document/ISO-8859-2/plain/libre-office-writer/test.html"
+                    const val TXT = "/document/ISO-8859-2/plain/libre-office-writer/test.txt"
+                }
+
                 const val TXT = "/document/ISO-8859-2/plain/test.txt"
-                const val COMPLEX_HTML = "/document/ISO-8859-2/plain/complex_test.html"
             }
         }
     }

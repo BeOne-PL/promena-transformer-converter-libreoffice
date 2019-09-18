@@ -8,6 +8,7 @@ import pl.beone.promena.transformer.contract.data.singleTransformedDataDescripto
 import pl.beone.promena.transformer.contract.model.Data
 import pl.beone.promena.transformer.contract.model.Parameters
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerCoordinator
+import pl.beone.promena.transformer.converter.libreoffice.transformer.dataprocessor.TextPlainOtherThanUtf8DataProcessor
 import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.DocumentFormatManager
 import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.*
 import java.io.OutputStream
@@ -32,6 +33,10 @@ internal abstract class AbstractTransformer(
             ApplicationVndMsPowerpointPresentationMacroenabled12DocumentFormat(),
             ApplicationVndMsPowerpointSlideshowMacroenabled12DocumentFormat()
         )
+
+        val dataProcessors = listOf(
+            TextPlainOtherThanUtf8DataProcessor()
+        )
     }
 
     protected abstract fun getOutputStream(): OutputStream
@@ -43,7 +48,7 @@ internal abstract class AbstractTransformer(
 
         val (data, mediaType, metadata) = singleDataDescriptor
 
-        data.getInputStream().use { inputStream ->
+        processData(data, mediaType).getInputStream().use { inputStream ->
             getOutputStream().use { outputStream ->
                 LocalConverter.make(officeManagerCoordinator.getManager())
                     .convert(inputStream)
@@ -56,4 +61,9 @@ internal abstract class AbstractTransformer(
 
         return singleTransformedDataDescriptor(createData(), metadata)
     }
+
+    private fun processData(data: Data, mediaType: MediaType): Data =
+        dataProcessors
+            .filter { it.isSupported(data, mediaType) }
+            .fold(data) { currentData, dataProcessor -> dataProcessor.process(currentData, mediaType) }
 }
