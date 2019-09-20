@@ -1,4 +1,4 @@
-RUN yum -y install libSM cairo cups-libs && \
+RUN yum -y install wget libSM cairo cups-libs && \
     wget http://mirror.onet.pl/pub/mirrors/tdf/libreoffice/stable/6.3.1/rpm/x86_64/LibreOffice_6.3.1_Linux_x86-64_rpm.tar.gz && \
     tar -xvf LibreOffice_6.3.1_Linux_x86-64_rpm.tar.gz && \
     yum localinstall -y LibreOffice_6.3.1.2_Linux_x86-64_rpm/RPMS/*.rpm && \
