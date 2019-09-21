@@ -67,9 +67,9 @@ internal class Supporter {
     }
 
     fun isSupported(dataDescriptor: DataDescriptor, targetMediaType: MediaType) {
-        dataDescriptor.descriptors.forEach { singleDataDescriptor ->
-            if (transformationIsNotSupported(singleDataDescriptor.mediaType, targetMediaType)) {
-                throw TransformationNotSupportedException("Supported transformations: ${createSupportedTransformationsString()}")
+        dataDescriptor.descriptors.forEach { (_, mediaType) ->
+            if (transformationIsNotSupported(mediaType, targetMediaType)) {
+                throw TransformationNotSupportedException("Transformation ${mediaType.createDescription()} -> ${targetMediaType.createDescription()} isn't supported")
             }
         }
     }
@@ -77,11 +77,6 @@ internal class Supporter {
     private fun transformationIsNotSupported(mediaType: MediaType, targetMediaType: MediaType): Boolean =
         !supportedApplicationTransformations.contains(mediaType to targetMediaType) &&
                 !supportedTextTransformations.contains(mediaType.mimeType to targetMediaType)
-
-    private fun createSupportedTransformationsString(): String =
-        supportedApplicationTransformations.joinToString(", ") { (from, to) -> "<${from.createDescription()} -> ${to.createDescription()}>" } +
-                ", " +
-                supportedTextTransformations.joinToString(", ") { (from, to) -> "<(${from}) -> ${to.createDescription()}>" }
 
     private fun MediaType.createDescription(): String =
         "(${mimeType}, ${charset.name()})"
