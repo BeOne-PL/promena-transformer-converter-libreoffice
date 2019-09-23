@@ -12,7 +12,8 @@ internal class OfficeManagerCoordinator(port: Int) {
         officeManager = LocalOfficeManager.builder()
             .portNumbers(port)
             .officeHome(OfficeEnvironment.home)
-            .killExistingProcess(true)
+            .taskExecutionTimeout(Long.MAX_VALUE)
+            .taskQueueTimeout(Long.MAX_VALUE)
             .build()
         closeConverterProcessOnShutdown()
 
