@@ -4,7 +4,7 @@ object Resource {
 
     object Multithreading {
         object Path {
-            const val DOCX = "/test.docx"
+            const val DOCX = "/multithreading/test.docx"
         }
     }
 
