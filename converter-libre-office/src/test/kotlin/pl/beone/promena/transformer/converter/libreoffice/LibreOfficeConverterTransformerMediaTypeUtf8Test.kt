@@ -28,7 +28,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_textCsv() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.CSV),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.CSV),
             TEXT_CSV
         )
     }
@@ -36,7 +36,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_textHtm() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.HTM),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.HTM),
             TEXT_HTML
         )
     }
@@ -44,7 +44,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_textHtml() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.HTML),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.HTML),
             TEXT_HTML
         )
     }
@@ -52,7 +52,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationRtf() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.RTF),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.RTF),
             APPLICATION_RTF
         )
     }
@@ -60,7 +60,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_textPlain() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.TXT),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.TXT),
             TEXT_PLAIN
         )
     }
@@ -68,7 +68,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationXml() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.XML),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.XML),
             APPLICATION_XML
         )
     }
@@ -76,7 +76,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_textXml() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Plain.XML),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.XML),
             TEXT_XML
         )
     }
@@ -86,7 +86,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationVndOasisOpendocumentPresentation() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Presentation.ODP),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.ODP),
             APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
         )
     }
@@ -94,7 +94,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationVndMsPowerpoint() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Presentation.PPT),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.PPT),
             APPLICATION_VND_MS_POWERPOINT
         )
     }
@@ -102,7 +102,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Presentation.PPTX),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.PPTX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
         )
     }
@@ -112,7 +112,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationVndOasisOpendocumentSpreadsheet() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.ODS),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.ODS),
             APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET
         )
     }
@@ -120,7 +120,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationVndMsExcel() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.XLS),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.XLS),
             APPLICATION_VND_MS_EXCEL
         )
     }
@@ -128,7 +128,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Spreadsheet.XLSX),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.XLSX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
         )
     }
@@ -138,7 +138,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationVndOasisOpendocumentText() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Text.ODT),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.ODT),
             APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT
         )
     }
@@ -146,7 +146,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationMsword() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Text.DOC),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.DOC),
             APPLICATION_MSWORD
         )
     }
@@ -154,7 +154,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Text.DOCX),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.DOCX),
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
         )
     }
@@ -162,7 +162,7 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
     @Test
     fun transform_applicationPdf() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.UTF_8.Text.PDF),
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.PDF),
             APPLICATION_PDF
         )
     }

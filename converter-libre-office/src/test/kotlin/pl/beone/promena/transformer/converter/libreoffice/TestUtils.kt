@@ -10,7 +10,6 @@ import org.apache.pdfbox.text.PDFTextStripper
 import pl.beone.promena.communication.memory.model.internal.memoryCommunicationParameters
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants
-import pl.beone.promena.transformer.contract.communication.CommunicationParameters
 import pl.beone.promena.transformer.contract.data.singleDataDescriptor
 import pl.beone.promena.transformer.contract.model.Data
 import pl.beone.promena.transformer.contract.model.Parameters
@@ -24,15 +23,16 @@ internal fun memoryTest(
     byteArray: ByteArray,
     mediaType: MediaType,
     targetMediaType: MediaType = MediaTypeConstants.APPLICATION_PDF,
+    libreOfficeConverterTransformer: LibreOfficeConverterTransformer = LibreOfficeConverterTransformer(memoryCommunicationParameters()),
     parameters: Parameters = emptyParameters(),
     assertText: String = "Zażółć gęślą jaźń"
 ) {
     test(
         byteArray.toMemoryData(),
         MemoryData::class,
-        memoryCommunicationParameters(),
         mediaType,
         targetMediaType,
+        libreOfficeConverterTransformer,
         parameters,
         assertText
     )
@@ -41,13 +41,13 @@ internal fun memoryTest(
 internal fun test(
     data: Data,
     dataClass: KClass<*>,
-    communicationParameters: CommunicationParameters,
     mediaType: MediaType,
     targetMediaType: MediaType = MediaTypeConstants.APPLICATION_PDF,
+    libreOfficeConverterTransformer: LibreOfficeConverterTransformer,
     parameters: Parameters = emptyParameters(),
     assertText: String = "Zażółć gęślą jaźń"
 ) {
-    LibreOfficeConverterTransformer(communicationParameters)
+    libreOfficeConverterTransformer
         .transform(singleDataDescriptor(data, mediaType, emptyMetadata()), targetMediaType, parameters).let { transformedDataDescriptor ->
             withClue("Transformed data should contain only <1> element") { transformedDataDescriptor.descriptors shouldHaveSize 1 }
 

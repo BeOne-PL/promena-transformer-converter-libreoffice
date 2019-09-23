@@ -21,7 +21,7 @@ class LibreOfficeConverterTransformerMediaTypeIso88592Test {
     @Test
     fun transform_textPlain() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.TXT),
+            getResourceAsBytes(Resource.MediaType.Path.ISO_8859_2.Plain.TXT),
             MediaType.of(TEXT_PLAIN.mimeType, charset)
         )
     }
@@ -29,7 +29,7 @@ class LibreOfficeConverterTransformerMediaTypeIso88592Test {
     @Test
     fun transform_textCsv() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.CSV),
+            getResourceAsBytes(Resource.MediaType.Path.ISO_8859_2.Plain.CSV),
             MediaType.of(TEXT_CSV.mimeType, charset)
         )
     }
@@ -37,7 +37,7 @@ class LibreOfficeConverterTransformerMediaTypeIso88592Test {
     @Test
     fun transform_LibreOfficeWriter_textPlain() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.LibreOfficeWriter.TXT),
+            getResourceAsBytes(Resource.MediaType.Path.ISO_8859_2.Plain.LibreOfficeWriter.TXT),
             MediaType.of(TEXT_PLAIN.mimeType, charset)
         )
     }
@@ -46,7 +46,7 @@ class LibreOfficeConverterTransformerMediaTypeIso88592Test {
     @Test
     fun transform_LibreOfficeWriter_textHtml() {
         memoryTest(
-            getResourceAsBytes(Resource.Path.ISO_8859_2.Plain.LibreOfficeWriter.HTML),
+            getResourceAsBytes(Resource.MediaType.Path.ISO_8859_2.Plain.LibreOfficeWriter.HTML),
             MediaType.of(TEXT_HTML.mimeType, charset)
         )
     }
