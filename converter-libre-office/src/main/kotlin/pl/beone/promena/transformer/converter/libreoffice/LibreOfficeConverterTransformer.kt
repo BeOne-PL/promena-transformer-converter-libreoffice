@@ -8,6 +8,7 @@ import pl.beone.promena.transformer.contract.data.DataDescriptor
 import pl.beone.promena.transformer.contract.data.TransformedDataDescriptor
 import pl.beone.promena.transformer.contract.data.toTransformedDataDescriptor
 import pl.beone.promena.transformer.contract.model.Parameters
+import pl.beone.promena.transformer.converter.libreoffice.applicationmodel.LibreOfficeConverterSupport
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerCoordinator
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerPort
 import pl.beone.promena.transformer.converter.libreoffice.transformer.AbstractTransformer
@@ -20,8 +21,6 @@ class LibreOfficeConverterTransformer(
 
     companion object {
         private val officeManagerPort by lazy { OfficeManagerPort() }
-
-        private val supporter = Supporter()
     }
 
     private val officeManagerCoordinator = OfficeManagerCoordinator(officeManagerPort.getNextPort())
@@ -40,6 +39,6 @@ class LibreOfficeConverterTransformer(
         }
 
     override fun isSupported(dataDescriptor: DataDescriptor, targetMediaType: MediaType, parameters: Parameters) {
-        supporter.isSupported(dataDescriptor, targetMediaType)
+        LibreOfficeConverterSupport.isSupported(dataDescriptor, targetMediaType, parameters)
     }
 }

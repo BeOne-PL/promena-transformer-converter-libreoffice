@@ -8,13 +8,13 @@ import pl.beone.promena.transformer.converter.libreoffice.applicationmodel.Libre
 class LibreOfficeConverterDslTest {
 
     @Test
-    fun libreOfficeConverterParameters_() {
+    fun `libreOfficeConverterParameters _ default arguments`() {
         libreOfficeConverterParameters().getAll().size shouldBe 0
     }
 
     @Test
-    fun libreOfficeConverterTransformation_() {
-        libreOfficeConverterTransformation().let {
+    fun `libreOfficeConverterTransformation _ default parameters`() {
+        libreOfficeConverterTransformation(APPLICATION_PDF).let {
             it.transformerId shouldBe TRANSFORMER_ID
             it.targetMediaType shouldBe APPLICATION_PDF
             it.parameters.getAll().size shouldBe 0

@@ -1,5 +1,6 @@
-package pl.beone.promena.transformer.converter.libreoffice
+package pl.beone.promena.transformer.converter.libreoffice.applicationmodel
 
+import pl.beone.lib.typeconverter.applicationmodel.exception.TypeConversionException
 import pl.beone.promena.transformer.applicationmodel.exception.transformer.TransformationNotSupportedException
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_MSWORD
@@ -29,11 +30,17 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstant
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_XML
 import pl.beone.promena.transformer.contract.data.DataDescriptor
+import pl.beone.promena.transformer.contract.model.Parameters
 
-internal class Supporter {
+object LibreOfficeConverterSupport {
 
-    companion object {
-        private val supportedApplicationTransformations = listOf(
+    fun isSupported(dataDescriptor: DataDescriptor, targetMediaType: MediaType, parameters: Parameters) {
+        dataDescriptor.descriptors.forEach { (_, mediaType) -> MediaTypeSupport.isSupported(mediaType, targetMediaType) }
+        ParametersSupport.isSupported(parameters)
+    }
+
+    object MediaTypeSupport {
+        private val supportedMediaType = setOf(
             APPLICATION_MSWORD to APPLICATION_PDF,
             APPLICATION_VND_MS_EXCEL to APPLICATION_PDF,
             APPLICATION_VND_MS_EXCEL_SHEET_MACRO_ENABLED_12 to APPLICATION_PDF,
@@ -58,26 +65,35 @@ internal class Supporter {
             APPLICATION_PDF to APPLICATION_PDF
         )
 
-        private val supportedTextTransformations = listOf(
+        private val supportedMimeType = setOf(
             TEXT_CSV.mimeType to APPLICATION_PDF,
             TEXT_HTML.mimeType to APPLICATION_PDF,
             TEXT_PLAIN.mimeType to APPLICATION_PDF,
             TEXT_XML.mimeType to APPLICATION_PDF
         )
-    }
 
-    fun isSupported(dataDescriptor: DataDescriptor, targetMediaType: MediaType) {
-        dataDescriptor.descriptors.forEach { (_, mediaType) ->
-            if (transformationIsNotSupported(mediaType, targetMediaType)) {
-                throw TransformationNotSupportedException("Transformation ${mediaType.createDescription()} -> ${targetMediaType.createDescription()} isn't supported")
+        fun isSupported(mediaType: MediaType, targetMediaType: MediaType) {
+            if (!supportedMediaType.contains(mediaType to targetMediaType) && !supportedMimeType.contains(mediaType.mimeType to targetMediaType)) {
+                throw TransformationNotSupportedException.unsupportedMediaType(mediaType, targetMediaType)
             }
         }
     }
 
-    private fun transformationIsNotSupported(mediaType: MediaType, targetMediaType: MediaType): Boolean =
-        !supportedApplicationTransformations.contains(mediaType to targetMediaType) &&
-                !supportedTextTransformations.contains(mediaType.mimeType to targetMediaType)
+    object ParametersSupport {
+        fun isSupported(parameters: Parameters) {
+            // deliberately omitted. There are no parameters
+        }
 
-    private fun MediaType.createDescription(): String =
-        "(${mimeType}, ${charset.name()})"
+        private fun Parameters.validate(name: String, clazz: Class<*>, mandatory: Boolean) {
+            try {
+                get(name, clazz)
+            } catch (e: NoSuchElementException) {
+                if (mandatory) {
+                    throw TransformationNotSupportedException.mandatoryParameter(name)
+                }
+            } catch (e: TypeConversionException) {
+                throw TransformationNotSupportedException.unsupportedParameterType(name, clazz)
+            }
+        }
+    }
 }
