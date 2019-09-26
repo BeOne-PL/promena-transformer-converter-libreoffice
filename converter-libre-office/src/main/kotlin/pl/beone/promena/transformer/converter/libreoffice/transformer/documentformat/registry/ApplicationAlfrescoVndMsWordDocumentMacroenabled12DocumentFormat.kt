@@ -2,13 +2,13 @@ package pl.beone.promena.transformer.converter.libreoffice.transformer.documentf
 
 import org.jodconverter.document.DefaultDocumentFormatRegistry
 import org.jodconverter.document.DocumentFormat
-import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants
+import pl.beone.promena.transformer.converter.libreoffice.applicationmodel.AlfrescoMediaTypeConstants
 
-internal object ApplicationVndMsWordDocumentMacroenabled12DocumentFormat : AbstractDocumentFormat() {
+internal object ApplicationAlfrescoVndMsWordDocumentMacroenabled12DocumentFormat : AbstractDocumentFormat() {
 
     override fun create(): DocumentFormat =
         createDocumentFormatBasedOn(
             DefaultDocumentFormatRegistry.XLSX,
-            MediaTypeConstants.APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12.mimeType
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12.mimeType
         )
 }

@@ -4,7 +4,7 @@ import org.jodconverter.document.DefaultDocumentFormatRegistry
 import org.jodconverter.document.DocumentFormat
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants
 
-internal class TextXmlDocumentFormat : AbstractDocumentFormat() {
+internal object TextXmlDocumentFormat : AbstractDocumentFormat() {
 
     override fun create(): DocumentFormat =
         createDocumentFormatBasedOn(

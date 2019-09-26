@@ -6,8 +6,8 @@ import pl.beone.lib.junit5.extension.docker.external.DockerExtension
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_MSWORD
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_RTF
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL
-import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACRO_ENABLED_12
-import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACRO_ENABLED_12
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
@@ -25,6 +25,7 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstant
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_HTML
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_XML
+import pl.beone.promena.transformer.converter.libreoffice.applicationmodel.AlfrescoMediaTypeConstants
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource
 import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
 
@@ -111,6 +112,11 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
             getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.POTM),
             APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12
         )
+
+        memoryTest(
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.POTM),
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12
+        )
     }
 
     @Test
@@ -135,6 +141,11 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
             getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPSM),
             APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
         )
+
+        memoryTest(
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPSM),
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
+        )
     }
 
     @Test
@@ -158,6 +169,11 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
         memoryTest(
             getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPTM),
             APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
+        )
+
+        memoryTest(
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPTM),
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
         )
     }
 
@@ -191,7 +207,12 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
     fun transform_applicationVndMsExcelSheetMacroEnabled12() {
         memoryTest(
             getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLSM),
-            APPLICATION_VND_MS_EXCEL_SHEET_MACRO_ENABLED_12
+            APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
+        )
+
+        memoryTest(
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLSM),
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
         )
     }
 
@@ -207,7 +228,12 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
     fun transform_applicationVndMsExcelTemplateMacroEnabled12() {
         memoryTest(
             getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLTM),
-            APPLICATION_VND_MS_EXCEL_TEMPLATE_MACRO_ENABLED_12
+            APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12
+        )
+
+        memoryTest(
+            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLTM),
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12
         )
     }
 

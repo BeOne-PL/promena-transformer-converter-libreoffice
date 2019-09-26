@@ -6,11 +6,9 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstant
 import pl.beone.promena.transformer.contract.model.Data
 import pl.beone.promena.transformer.internal.model.data.toMemoryData
 
-internal class TextPlainAndTextCsvOtherThanUtf8DataProcessor : AbstractDataProcessor() {
+internal object TextPlainAndTextCsvOtherThanUtf8DataProcessor : AbstractDataProcessor() {
 
-    companion object {
-        val mimeTypes = listOf(TEXT_PLAIN.mimeType, TEXT_CSV.mimeType)
-    }
+    private val mimeTypes = listOf(TEXT_PLAIN.mimeType, TEXT_CSV.mimeType)
 
     override fun process(data: Data, mediaType: MediaType): Data =
         String(data.getBytes(), mediaType.charset).toMemoryData()

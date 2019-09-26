@@ -19,23 +19,29 @@ internal abstract class AbstractTransformer(
 
     companion object {
         val additionalDocumentFormats = listOf(
-            ApplicationHtmlDocumentFormat(),
-            ApplicationRtfDocumentFormat(),
-            TextXmlDocumentFormat(),
-            ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlTemplateDocumentFormat(),
-            ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplateDocumentFormat(),
-            ApplicationVndOpenxmlformatsOfficedocumentPresentationmlTemplateDocumentFormat(),
-            ApplicationVndOpenxmlformatsOfficedocumentPresentationmlSlideshowDocumentFormat(),
-            ApplicationVndMsWordDocumentMacroenabled12DocumentFormat(),
-            ApplicationVndMsExcelSheetMacroEnabled12DocumentFormat(),
-            ApplicationVndMsExcelTemplateMacroEnabled12DocumentFormat(),
-            ApplicationVndMsPowerpointTemplateMacroenabled12DocumentFormat(),
-            ApplicationVndMsPowerpointPresentationMacroenabled12DocumentFormat(),
-            ApplicationVndMsPowerpointSlideshowMacroenabled12DocumentFormat()
+            ApplicationHtmlDocumentFormat,
+            ApplicationRtfDocumentFormat,
+            TextXmlDocumentFormat,
+            ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlTemplateDocumentFormat,
+            ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplateDocumentFormat,
+            ApplicationVndOpenxmlformatsOfficedocumentPresentationmlTemplateDocumentFormat,
+            ApplicationVndOpenxmlformatsOfficedocumentPresentationmlSlideshowDocumentFormat,
+            ApplicationVndMsWordDocumentMacroenabled12DocumentFormat,
+            ApplicationVndMsExcelSheetMacroEnabled12DocumentFormat,
+            ApplicationVndMsExcelTemplateMacroEnabled12DocumentFormat,
+            ApplicationVndMsPowerpointTemplateMacroenabled12DocumentFormat,
+            ApplicationVndMsPowerpointPresentationMacroenabled12DocumentFormat,
+            ApplicationVndMsPowerpointSlideshowMacroenabled12DocumentFormat,
+            ApplicationAlfresccoVndMsExcelSheetMacroEnabled12DocumentFormat,
+            ApplicationAlfrescoVndMsExcelTemplateMacroEnabled12DocumentFormat,
+            ApplicationAlfrescoVndMsPowerpointPresentationMacroenabled12DocumentFormat,
+            ApplicationAlfrescoVndMsPowerpointSlideshowMacroenabled12DocumentFormat,
+            ApplicationAlfrescoVndMsPowerpointTemplateMacroenabled12DocumentFormat,
+            ApplicationAlfrescoVndMsWordDocumentMacroenabled12DocumentFormat
         )
 
         val dataProcessors = listOf(
-            TextPlainAndTextCsvOtherThanUtf8DataProcessor()
+            TextPlainAndTextCsvOtherThanUtf8DataProcessor
         )
     }
 

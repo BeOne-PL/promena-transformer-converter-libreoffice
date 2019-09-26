@@ -5,9 +5,10 @@ import pl.beone.promena.transformer.applicationmodel.exception.transformer.Trans
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_MSWORD
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_PDF
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_RTF
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL
-import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACRO_ENABLED_12
-import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACRO_ENABLED_12
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
+import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
@@ -43,8 +44,8 @@ object LibreOfficeConverterSupport {
         private val supportedMediaType = setOf(
             APPLICATION_MSWORD to APPLICATION_PDF,
             APPLICATION_VND_MS_EXCEL to APPLICATION_PDF,
-            APPLICATION_VND_MS_EXCEL_SHEET_MACRO_ENABLED_12 to APPLICATION_PDF,
-            APPLICATION_VND_MS_EXCEL_TEMPLATE_MACRO_ENABLED_12 to APPLICATION_PDF,
+            APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12 to APPLICATION_PDF,
+            APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12 to APPLICATION_PDF,
             APPLICATION_VND_MS_POWERPOINT to APPLICATION_PDF,
             APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12 to APPLICATION_PDF,
             APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12 to APPLICATION_PDF,
@@ -62,7 +63,15 @@ object LibreOfficeConverterSupport {
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE to APPLICATION_PDF,
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT to APPLICATION_PDF,
             APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE to APPLICATION_PDF,
-            APPLICATION_PDF to APPLICATION_PDF
+            APPLICATION_RTF to APPLICATION_PDF,
+            APPLICATION_PDF to APPLICATION_PDF,
+
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12 to APPLICATION_PDF,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12 to APPLICATION_PDF,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12 to APPLICATION_PDF,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12 to APPLICATION_PDF,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12 to APPLICATION_PDF,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12 to APPLICATION_PDF
         )
 
         private val supportedMimeType = setOf(
