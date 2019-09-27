@@ -7,16 +7,16 @@
     <parent>
         <groupId>pl.beone.promena.sdk.maven.parent</groupId>
         <artifactId>promena-transformer-parent</artifactId>
-        <version>0.9.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <relativePath/>
     </parent>
 
     <groupId>pl.beone.promena.transformer</groupId>
     <artifactId>converter-libre-office-configuration</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <properties>
-        <converter-libre-office.version>0.9.0-SNAPSHOT</converter-libre-office.version>
+        <converter-libre-office.version>1.0.0</converter-libre-office.version>
     </properties>
 
     <dependencies>

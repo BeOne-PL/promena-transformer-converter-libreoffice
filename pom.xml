@@ -6,7 +6,7 @@
 
     <groupId>pl.beone.promena.transformer</groupId>
     <artifactId>converter-libre-office-root</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <modules>
         <module>converter-libre-office-application-model</module>
