@@ -54,7 +54,7 @@ internal abstract class AbstractTransformer(
 
         val (data, mediaType, metadata) = singleDataDescriptor
 
-        processData(data, mediaType).getInputStream().use { inputStream ->
+        process(data, mediaType).getInputStream().use { inputStream ->
             getOutputStream().use { outputStream ->
                 LocalConverter.make(officeManagerCoordinator.getManager())
                     .convert(inputStream)
@@ -68,7 +68,7 @@ internal abstract class AbstractTransformer(
         return singleTransformedDataDescriptor(createData(), metadata)
     }
 
-    private fun processData(data: Data, mediaType: MediaType): Data =
+    private fun process(data: Data, mediaType: MediaType): Data =
         dataProcessors
             .filter { it.isSupported(data, mediaType) }
             .fold(data) { currentData, dataProcessor -> dataProcessor.process(currentData, mediaType) }
