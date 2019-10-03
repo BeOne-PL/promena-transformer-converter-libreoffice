@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>pl.beone.promena.transformer</groupId>
+    <groupId>pl.beone.promena.base</groupId>
     <artifactId>converter-libre-office-example</artifactId>
     <version>1.0.0</version>
 
@@ -30,7 +30,7 @@
         </dependency>
 
         <dependency>
-            <groupId>pl.beone.promena.transformer</groupId>
+            <groupId>pl.beone.promena.base</groupId>
             <artifactId>converter-libre-office-application-model</artifactId>
             <version>${converter-libre-office.version}</version>
         </dependency>

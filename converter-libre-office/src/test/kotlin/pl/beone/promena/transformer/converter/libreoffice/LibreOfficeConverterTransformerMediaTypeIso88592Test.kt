@@ -2,7 +2,7 @@ package pl.beone.promena.transformer.converter.libreoffice
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import pl.beone.lib.junit5.extension.docker.external.DockerExtension
+import pl.beone.lib.junit.jupiter.external.DockerExtension
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_CSV
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_HTML
