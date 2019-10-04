@@ -4,9 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pl.beone.promena.base</groupId>
-    <artifactId>converter-libre-office-root</artifactId>
+    <groupId>pl.beone.promena.transformer</groupId>
+    <artifactId>converter-libreoffice-root</artifactId>
     <version>1.0.0</version>
+
+    <name>[TRANSFORMER] Converter - LibreOffice</name>
 
     <repositories>
         <repository>
@@ -27,10 +29,10 @@
     </distributionManagement>
 
     <modules>
-        <module>converter-libre-office-application-model</module>
-        <module>converter-libre-office</module>
-        <module>converter-libre-office-example</module>
-        <module>converter-libre-office-configuration</module>
+        <module>application-model</module>
+        <module>implementation</module>
+        <module>example</module>
+        <module>configuration</module>
     </modules>
     <packaging>pom</packaging>
 
