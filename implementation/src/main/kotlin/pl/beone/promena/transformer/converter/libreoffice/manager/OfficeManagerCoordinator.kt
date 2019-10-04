@@ -2,16 +2,18 @@ package pl.beone.promena.transformer.converter.libreoffice.manager
 
 import org.jodconverter.office.LocalOfficeManager
 import org.jodconverter.office.OfficeManager
-import pl.beone.promena.transformer.converter.libreoffice.environment.OfficeEnvironment
 
-internal class OfficeManagerCoordinator(port: Int) {
+internal class OfficeManagerCoordinator(
+    home: String,
+    port: Int
+) {
 
     private val officeManager: OfficeManager
 
     init {
         officeManager = LocalOfficeManager.builder()
+            .officeHome(home)
             .portNumbers(port)
-            .officeHome(OfficeEnvironment.home)
             .taskExecutionTimeout(Long.MAX_VALUE)
             .taskQueueTimeout(Long.MAX_VALUE)
             .build()

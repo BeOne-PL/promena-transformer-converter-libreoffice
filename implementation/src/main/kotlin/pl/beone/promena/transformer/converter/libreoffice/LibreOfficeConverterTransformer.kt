@@ -16,14 +16,12 @@ import pl.beone.promena.transformer.converter.libreoffice.transformer.FileTransf
 import pl.beone.promena.transformer.converter.libreoffice.transformer.MemoryTransformer
 
 class LibreOfficeConverterTransformer(
+    settings: LibreOfficeConverterTransformerSettings,
+    private val defaultParameters: LibreOfficeConverterTransformerDefaultParameters,
     private val internalCommunicationParameters: CommunicationParameters
 ) : Transformer {
 
-    companion object {
-        private val officeManagerPort by lazy { OfficeManagerPort() }
-    }
-
-    private val officeManagerCoordinator = OfficeManagerCoordinator(officeManagerPort.getNextPort())
+    private val officeManagerCoordinator = OfficeManagerCoordinator(settings.home, OfficeManagerPort.getNextPort(settings.startingPort))
 
     override fun transform(dataDescriptor: DataDescriptor, targetMediaType: MediaType, parameters: Parameters): TransformedDataDescriptor =
         dataDescriptor.descriptors
@@ -33,9 +31,13 @@ class LibreOfficeConverterTransformer(
     private fun determineTransformer(): AbstractTransformer =
         when (internalCommunicationParameters.getId()) {
             FileCommunicationParameters.ID ->
-                FileTransformer(officeManagerCoordinator, (internalCommunicationParameters as FileCommunicationParameters).getDirectory())
+                FileTransformer(
+                    (internalCommunicationParameters as FileCommunicationParameters).getDirectory(),
+                    defaultParameters,
+                    officeManagerCoordinator
+                )
             else ->
-                MemoryTransformer(officeManagerCoordinator)
+                MemoryTransformer(defaultParameters, officeManagerCoordinator)
         }
 
     override fun isSupported(dataDescriptor: DataDescriptor, targetMediaType: MediaType, parameters: Parameters) {

@@ -7,13 +7,18 @@ import pl.beone.promena.transformer.contract.data.TransformedDataDescriptor
 import pl.beone.promena.transformer.contract.data.singleTransformedDataDescriptor
 import pl.beone.promena.transformer.contract.model.Data
 import pl.beone.promena.transformer.contract.model.Parameters
+import pl.beone.promena.transformer.converter.libreoffice.LibreOfficeConverterTransformerDefaultParameters
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerCoordinator
 import pl.beone.promena.transformer.converter.libreoffice.transformer.dataprocessor.TextPlainAndTextCsvOtherThanUtf8DataProcessor
 import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.DocumentFormatManager
 import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.*
+import java.io.InputStream
 import java.io.OutputStream
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 internal abstract class AbstractTransformer(
+    private val defaultParameters: LibreOfficeConverterTransformerDefaultParameters,
     private val officeManagerCoordinator: OfficeManagerCoordinator
 ) {
 
@@ -56,16 +61,27 @@ internal abstract class AbstractTransformer(
 
         processData(data, mediaType).getInputStream().use { inputStream ->
             getOutputStream().use { outputStream ->
-                LocalConverter.make(officeManagerCoordinator.getManager())
-                    .convert(inputStream)
-                    .`as`(DocumentFormatManager.getDocumentFormat(mediaType))
-                    .to(outputStream, false)
-                    .`as`(DocumentFormatManager.getDocumentFormat(targetMediaType))
-                    .execute()
+                val timeout = parameters.getTimeoutOrNull() ?: defaultParameters.timeout
+                if (timeout != null) {
+                    Executors.newSingleThreadExecutor()
+                        .submit { convert(inputStream, mediaType, outputStream, targetMediaType) }
+                        .get(timeout.toMillis(), TimeUnit.MILLISECONDS)
+                } else {
+                    convert(inputStream, mediaType, outputStream, targetMediaType)
+                }
             }
         }
 
         return singleTransformedDataDescriptor(createData(), metadata)
+    }
+
+    private fun convert(inputStream: InputStream, mediaType: MediaType, outputStream: OutputStream, targetMediaType: MediaType) {
+        LocalConverter.make(officeManagerCoordinator.getManager())
+            .convert(inputStream)
+            .`as`(DocumentFormatManager.getDocumentFormat(mediaType))
+            .to(outputStream, false)
+            .`as`(DocumentFormatManager.getDocumentFormat(targetMediaType))
+            .execute()
     }
 
     private fun processData(data: Data, mediaType: MediaType): Data =

@@ -23,7 +23,12 @@ internal fun memoryTest(
     byteArray: ByteArray,
     mediaType: MediaType,
     targetMediaType: MediaType = MediaTypeConstants.APPLICATION_PDF,
-    libreOfficeConverterTransformer: LibreOfficeConverterTransformer = LibreOfficeConverterTransformer(memoryCommunicationParameters()),
+    libreOfficeConverterTransformer: LibreOfficeConverterTransformer =
+        LibreOfficeConverterTransformer(
+            LibreOfficeConverterTransformerSettings(),
+            LibreOfficeConverterTransformerDefaultParameters(),
+            memoryCommunicationParameters()
+        ),
     parameters: Parameters = emptyParameters(),
     assertText: String = "Zażółć gęślą jaźń"
 ) {

@@ -25,7 +25,11 @@ class LibreOfficeConverterTransformerCommunicationTest {
             MemoryData::class,
             TEXT_PLAIN,
             APPLICATION_PDF,
-            LibreOfficeConverterTransformer(memoryCommunicationParameters())
+            LibreOfficeConverterTransformer(
+                LibreOfficeConverterTransformerSettings(),
+                LibreOfficeConverterTransformerDefaultParameters(),
+                memoryCommunicationParameters()
+            )
         )
     }
 
@@ -38,7 +42,11 @@ class LibreOfficeConverterTransformerCommunicationTest {
             FileData::class,
             TEXT_PLAIN,
             APPLICATION_PDF,
-            LibreOfficeConverterTransformer(fileCommunicationParameters(directory))
+            LibreOfficeConverterTransformer(
+                LibreOfficeConverterTransformerSettings(),
+                LibreOfficeConverterTransformerDefaultParameters(),
+                fileCommunicationParameters(directory)
+            )
         )
     }
 }

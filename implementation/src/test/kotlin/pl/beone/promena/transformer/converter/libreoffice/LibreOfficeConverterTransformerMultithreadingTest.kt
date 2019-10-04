@@ -23,7 +23,14 @@ class LibreOfficeConverterTransformerMultithreadingTest {
         val targetMediaType = APPLICATION_PDF
 
         val executors = Executors.newFixedThreadPool(parallelismLevel)
-        val transformers = (0 until parallelismLevel).map { LibreOfficeConverterTransformer(memoryCommunicationParameters()) }
+        val transformers = (0 until parallelismLevel)
+            .map {
+                LibreOfficeConverterTransformer(
+                    LibreOfficeConverterTransformerSettings(),
+                    LibreOfficeConverterTransformerDefaultParameters(),
+                    memoryCommunicationParameters()
+                )
+            }
 
         (0 until iterations).map {
             executors.submit {

@@ -1,12 +1,20 @@
 package pl.beone.promena.transformer.converter.libreoffice.manager
 
-import pl.beone.promena.transformer.converter.libreoffice.environment.OfficeEnvironment
-import java.util.concurrent.atomic.AtomicInteger
+import kotlin.properties.Delegates
 
-internal class OfficeManagerPort {
+object OfficeManagerPort {
 
-    private val port = AtomicInteger(OfficeEnvironment.startingPort)
+    private var port by Delegates.notNull<Int>()
 
-    fun getNextPort(): Int =
-        port.getAndIncrement()
+    @Synchronized
+    fun getNextPort(startingPort: Int): Int =
+        initOrIncrement(startingPort)
+
+    private fun initOrIncrement(startingPort: Int): Int =
+        try {
+            ++port
+        } catch (e: IllegalStateException) {
+            port = startingPort
+            port
+        }
 }

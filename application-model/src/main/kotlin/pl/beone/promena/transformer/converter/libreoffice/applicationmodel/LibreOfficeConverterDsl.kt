@@ -9,15 +9,10 @@ import pl.beone.promena.transformer.contract.transformation.Transformation
 import pl.beone.promena.transformer.contract.transformation.singleTransformation
 import pl.beone.promena.transformer.converter.libreoffice.applicationmodel.LibreOfficeConverterConstants.TRANSFORMER_ID
 import pl.beone.promena.transformer.converter.libreoffice.applicationmodel.LibreOfficeConverterConstants.TRANSFORMER_NAME
+import pl.beone.promena.transformer.internal.model.parameters.emptyParameters
 
-fun converterTransformation(
-    targetMediaType: MediaType = APPLICATION_PDF,
-    parameters: Parameters = libreOfficeConverterParameters()
-): Transformation.Single =
+fun converterTransformation(targetMediaType: MediaType, parameters: Parameters): Transformation.Single =
     singleTransformation(TRANSFORMER_NAME, targetMediaType, parameters)
 
-fun libreOfficeConverterTransformation(
-    targetMediaType: MediaType = APPLICATION_PDF,
-    parameters: Parameters = libreOfficeConverterParameters()
-): Transformation.Single =
-    singleTransformation(TRANSFORMER_ID, targetMediaType, parameters)
+fun libreOfficeConverterTransformation(): Transformation.Single =
+    singleTransformation(TRANSFORMER_ID, APPLICATION_PDF, emptyParameters())
