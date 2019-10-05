@@ -65,6 +65,7 @@ internal abstract class AbstractTransformer(
                 if (timeout != null) {
                     Executors.newSingleThreadExecutor()
                         .submit { convert(inputStream, mediaType, outputStream, targetMediaType) }
+                        // FIXME it only interrupts this thread but not the running LibreOffice process
                         .get(timeout.toMillis(), TimeUnit.MILLISECONDS)
                 } else {
                     convert(inputStream, mediaType, outputStream, targetMediaType)
