@@ -8,9 +8,9 @@ import java.io.File
 import java.io.OutputStream
 
 internal class FileTransformer(
-    directory: File,
     defaultParameters: LibreOfficeConverterTransformerDefaultParameters,
-    officeManagerCoordinator: OfficeManagerCoordinator
+    officeManagerCoordinator: OfficeManagerCoordinator,
+    directory: File
 ) : AbstractTransformer(defaultParameters, officeManagerCoordinator) {
 
     private val file = createTempFile(directory = directory)

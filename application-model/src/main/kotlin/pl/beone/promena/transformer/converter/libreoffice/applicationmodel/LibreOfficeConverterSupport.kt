@@ -92,17 +92,5 @@ object LibreOfficeConverterSupport {
         fun isSupported(parameters: Parameters) {
             // deliberately omitted. There are no parameters
         }
-
-        private fun Parameters.validate(name: String, clazz: Class<*>, mandatory: Boolean) {
-            try {
-                get(name, clazz)
-            } catch (e: NoSuchElementException) {
-                if (mandatory) {
-                    throw TransformationNotSupportedException.mandatoryParameter(name)
-                }
-            } catch (e: TypeConversionException) {
-                throw TransformationNotSupportedException.unsupportedParameterType(name, clazz)
-            }
-        }
     }
 }

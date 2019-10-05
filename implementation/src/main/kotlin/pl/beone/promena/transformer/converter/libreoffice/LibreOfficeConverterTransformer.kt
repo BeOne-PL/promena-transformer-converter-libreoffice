@@ -32,9 +32,9 @@ class LibreOfficeConverterTransformer(
         when (internalCommunicationParameters.getId()) {
             FileCommunicationParameters.ID ->
                 FileTransformer(
-                    (internalCommunicationParameters as FileCommunicationParameters).getDirectory(),
                     defaultParameters,
-                    officeManagerCoordinator
+                    officeManagerCoordinator,
+                    (internalCommunicationParameters as FileCommunicationParameters).getDirectory()
                 )
             else ->
                 MemoryTransformer(defaultParameters, officeManagerCoordinator)
