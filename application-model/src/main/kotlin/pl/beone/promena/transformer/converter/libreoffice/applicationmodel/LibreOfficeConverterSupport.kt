@@ -1,6 +1,5 @@
 package pl.beone.promena.transformer.converter.libreoffice.applicationmodel
 
-import pl.beone.lib.typeconverter.applicationmodel.exception.TypeConversionException
 import pl.beone.promena.transformer.applicationmodel.exception.transformer.TransformationNotSupportedException
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_MSWORD
@@ -35,6 +34,7 @@ import pl.beone.promena.transformer.contract.model.Parameters
 
 object LibreOfficeConverterSupport {
 
+    @JvmStatic
     fun isSupported(dataDescriptor: DataDescriptor, targetMediaType: MediaType, parameters: Parameters) {
         dataDescriptor.descriptors.forEach { (_, mediaType) -> MediaTypeSupport.isSupported(mediaType, targetMediaType) }
         ParametersSupport.isSupported(parameters)
@@ -81,6 +81,7 @@ object LibreOfficeConverterSupport {
             TEXT_XML.mimeType to APPLICATION_PDF
         )
 
+        @JvmStatic
         fun isSupported(mediaType: MediaType, targetMediaType: MediaType) {
             if (!supportedMediaType.contains(mediaType to targetMediaType) && !supportedMimeType.contains(mediaType.mimeType to targetMediaType)) {
                 throw TransformationNotSupportedException.unsupportedMediaType(mediaType, targetMediaType)
@@ -89,6 +90,7 @@ object LibreOfficeConverterSupport {
     }
 
     object ParametersSupport {
+        @JvmStatic
         fun isSupported(parameters: Parameters) {
             // deliberately omitted. There are no parameters
         }
