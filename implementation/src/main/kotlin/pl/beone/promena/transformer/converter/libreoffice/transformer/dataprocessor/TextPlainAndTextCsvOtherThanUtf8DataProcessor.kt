@@ -3,8 +3,8 @@ package pl.beone.promena.transformer.converter.libreoffice.transformer.dataproce
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_CSV
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
-import pl.beone.promena.transformer.contract.model.Data
-import pl.beone.promena.transformer.internal.model.data.toMemoryData
+import pl.beone.promena.transformer.contract.model.data.Data
+import pl.beone.promena.transformer.internal.model.data.memory.toMemoryData
 
 internal object TextPlainAndTextCsvOtherThanUtf8DataProcessor : AbstractDataProcessor() {
 

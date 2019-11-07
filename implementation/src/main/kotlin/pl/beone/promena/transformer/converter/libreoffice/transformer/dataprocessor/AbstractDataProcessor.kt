@@ -1,7 +1,7 @@
 package pl.beone.promena.transformer.converter.libreoffice.transformer.dataprocessor
 
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
-import pl.beone.promena.transformer.contract.model.Data
+import pl.beone.promena.transformer.contract.model.data.Data
 
 internal abstract class AbstractDataProcessor {
 
