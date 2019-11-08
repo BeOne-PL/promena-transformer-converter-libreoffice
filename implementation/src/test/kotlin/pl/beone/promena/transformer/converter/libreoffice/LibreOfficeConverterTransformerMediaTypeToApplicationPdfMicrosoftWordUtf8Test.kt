@@ -26,256 +26,162 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstant
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_XML
 import pl.beone.promena.transformer.converter.libreoffice.applicationmodel.AlfrescoMediaTypeConstants
-import pl.beone.promena.transformer.converter.libreoffice.model.Resource
-import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Plain
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Presentation
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Spreadsheet
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Text
 
 @ExtendWith(DockerExtension::class)
 class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8Test {
 
     @Test
     fun transform_textCsv() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.MicrosoftWord.CSV),
-            TEXT_CSV
-        )
+        test(Plain.MicrosoftWord.CSV, TEXT_CSV)
     }
 
     @Test
     fun transform_textHtml() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.MicrosoftWord.HTML),
-            TEXT_HTML
-        )
+        test(Plain.MicrosoftWord.HTML, TEXT_HTML)
     }
 
     @Test
     fun transform_textHtml2() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.MicrosoftWord.HTML2),
-            TEXT_HTML
-        )
+        test(Plain.MicrosoftWord.HTML2, TEXT_HTML)
     }
 
     @Test
     fun transform_applicationRtf() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.MicrosoftWord.RTF),
-            APPLICATION_RTF
-        )
+        test(Plain.MicrosoftWord.RTF, APPLICATION_RTF)
     }
 
     @Test
     fun transform_textPlain() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.MicrosoftWord.TXT),
-            TEXT_PLAIN
-        )
+        test(Plain.MicrosoftWord.TXT, TEXT_PLAIN)
     }
 
     @Test
     fun transform_textXml() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.MicrosoftWord.XML),
-            TEXT_XML
-        )
+        test(Plain.MicrosoftWord.XML, TEXT_XML)
     }
 
     @Test
     fun transform_textXml2003() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.MicrosoftWord.XML_2003),
-            TEXT_XML
-        )
+        test(Plain.MicrosoftWord.XML_2003, TEXT_XML)
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentPresentation() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.ODP),
-            APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
-        )
+        test(Presentation.MicrosoftPowerPoint.ODP, APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION)
     }
 
     @Test
     fun transform_applicationVndMsPowerpoint2() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.POT),
-            APPLICATION_VND_MS_POWERPOINT
-        )
+        test(Presentation.MicrosoftPowerPoint.POT, APPLICATION_VND_MS_POWERPOINT)
     }
 
     @Test
     fun transform_applicationVndMsPowerpointTemplateMacroenabled12() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.POTM),
-            APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12
-        )
+        test(Presentation.MicrosoftPowerPoint.POTM, APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12)
 
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.POTM),
-            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12
-        )
+        test(Presentation.MicrosoftPowerPoint.POTM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlTemplate() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.POTX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE
-        )
+        test(Presentation.MicrosoftPowerPoint.POTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE)
     }
 
     @Test
     fun transform_applicationVndMsPowerpoint3() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPS),
-            APPLICATION_VND_MS_POWERPOINT
-        )
+        test(Presentation.MicrosoftPowerPoint.PPS, APPLICATION_VND_MS_POWERPOINT)
     }
 
     @Test
     fun transform_applicationVndMsPowerpointSlideshowMacroenabled12() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPSM),
-            APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
-        )
+        test(Presentation.MicrosoftPowerPoint.PPSM, APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12)
 
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPSM),
-            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
-        )
+        test(Presentation.MicrosoftPowerPoint.PPSM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlSlideshow() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPSX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW
-        )
+        test(Presentation.MicrosoftPowerPoint.PPSX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW)
     }
 
     @Test
     fun transform_applicationVndMsPowerpoint() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPT),
-            APPLICATION_VND_MS_POWERPOINT
-        )
+        test(Presentation.MicrosoftPowerPoint.PPT, APPLICATION_VND_MS_POWERPOINT)
     }
 
     @Test
     fun transform_applicationVndMsPowerpointPresentationMacroenabled12() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPTM),
-            APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
-        )
+        test(Presentation.MicrosoftPowerPoint.PPTM, APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12)
 
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPTM),
-            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
-        )
+        test(Presentation.MicrosoftPowerPoint.PPTM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.MicrosoftPowerPoint.PPTX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
-        )
+        test(Presentation.MicrosoftPowerPoint.PPTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION)
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentSpreadsheet() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.ODS),
-            APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET
-        )
+        test(Spreadsheet.MicrosoftExcel.ODS, APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET)
     }
 
     @Test
     fun transform_applicationVndMsExcel() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLS),
-            APPLICATION_VND_MS_EXCEL
-        )
+        test(Spreadsheet.MicrosoftExcel.XLS, APPLICATION_VND_MS_EXCEL)
     }
 
     @Test
     fun transform_applicationVndMsExcelSheetMacroEnabled12() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLSM),
-            APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
-        )
+        test(Spreadsheet.MicrosoftExcel.XLSM, APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12)
 
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLSM),
-            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
-        )
+        test(Spreadsheet.MicrosoftExcel.XLSM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLSX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
-        )
+        test(Spreadsheet.MicrosoftExcel.XLSX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET)
     }
 
     @Test
     fun transform_applicationVndMsExcelTemplateMacroEnabled12() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLTM),
-            APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12
-        )
+        test(Spreadsheet.MicrosoftExcel.XLTM, APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12)
 
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLTM),
-            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12
-        )
+        test(Spreadsheet.MicrosoftExcel.XLTM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplate() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.MicrosoftExcel.XLTX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE
-        )
+        test(Spreadsheet.MicrosoftExcel.XLTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE)
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentText() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.MicrosoftWord.ODT),
-            APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT
-        )
+        test(Text.MicrosoftWord.ODT, APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT)
     }
 
     @Test
     fun transform_applicationMsword() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.MicrosoftWord.DOC),
-            APPLICATION_MSWORD
-        )
+        test(Text.MicrosoftWord.DOC, APPLICATION_MSWORD)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.MicrosoftWord.DOCX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
-        )
+        test(Text.MicrosoftWord.DOCX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT)
     }
 
     @Test
     fun transform_applicationMsword2() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.MicrosoftWord.DOT),
-            APPLICATION_MSWORD
-        )
+        test(Text.MicrosoftWord.DOT, APPLICATION_MSWORD)
     }
 }

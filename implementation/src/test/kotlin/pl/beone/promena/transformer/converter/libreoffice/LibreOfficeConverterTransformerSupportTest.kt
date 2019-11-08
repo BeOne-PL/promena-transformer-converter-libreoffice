@@ -21,7 +21,7 @@ class LibreOfficeConverterTransformerSupportTest {
         mockkStatic(LibreOfficeConverterSupport::class)
         every { LibreOfficeConverterSupport.isSupported(dataDescriptor, targetMediaType, parameters) } just Runs
 
-        LibreOfficeConverterTransformer(LibreOfficeConverterTransformerSettings(), LibreOfficeConverterTransformerDefaultParameters(), mockk())
+        LibreOfficeConverterTransformer(LibreOfficeConverterTransformerSettings(), LibreOfficeConverterTransformerDefaultParameters(), mockk(), mockk())
             .isSupported(dataDescriptor, targetMediaType, parameters)
 
         verify(exactly = 1) { LibreOfficeConverterSupport.isSupported(dataDescriptor, targetMediaType, parameters) }

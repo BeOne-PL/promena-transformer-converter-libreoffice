@@ -1,4 +1,4 @@
-package pl.beone.promena.transformer.converter.libreoffice.transformer
+package pl.beone.promena.transformer.converter.libreoffice.processor
 
 import org.jodconverter.LocalConverter
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
@@ -7,17 +7,18 @@ import pl.beone.promena.transformer.contract.data.TransformedDataDescriptor
 import pl.beone.promena.transformer.contract.data.singleTransformedDataDescriptor
 import pl.beone.promena.transformer.contract.model.Parameters
 import pl.beone.promena.transformer.contract.model.data.Data
+import pl.beone.promena.transformer.contract.model.data.WritableData
 import pl.beone.promena.transformer.converter.libreoffice.LibreOfficeConverterTransformerDefaultParameters
 import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerCoordinator
-import pl.beone.promena.transformer.converter.libreoffice.transformer.dataprocessor.TextPlainAndTextCsvOtherThanUtf8DataProcessor
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.DocumentFormatManager
-import pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry.*
+import pl.beone.promena.transformer.converter.libreoffice.processor.dataprocessor.TextPlainAndTextCsvOtherThanUtf8DataProcessor
+import pl.beone.promena.transformer.converter.libreoffice.processor.documentformat.DocumentFormatManager
+import pl.beone.promena.transformer.converter.libreoffice.processor.documentformat.registry.*
 import java.io.InputStream
 import java.io.OutputStream
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-internal abstract class AbstractTransformer(
+internal class Processor(
     private val defaultParameters: LibreOfficeConverterTransformerDefaultParameters,
     private val officeManagerCoordinator: OfficeManagerCoordinator
 ) {
@@ -50,17 +51,18 @@ internal abstract class AbstractTransformer(
         )
     }
 
-    protected abstract fun getOutputStream(): OutputStream
-
-    protected abstract fun createData(): Data
-
-    fun transform(singleDataDescriptor: DataDescriptor.Single, targetMediaType: MediaType, parameters: Parameters): TransformedDataDescriptor.Single {
+    fun process(
+        singleDataDescriptor: DataDescriptor.Single,
+        targetMediaType: MediaType,
+        parameters: Parameters,
+        transformedWritableData: WritableData
+    ): TransformedDataDescriptor.Single {
         DocumentFormatManager.register(additionalDocumentFormats)
 
         val (data, mediaType, metadata) = singleDataDescriptor
 
         processData(data, mediaType).getInputStream().use { inputStream ->
-            getOutputStream().use { outputStream ->
+            transformedWritableData.getOutputStream().use { outputStream ->
                 val timeout = parameters.getTimeoutOrNull() ?: defaultParameters.timeout
                 if (timeout != null) {
                     Executors.newSingleThreadExecutor()
@@ -73,7 +75,7 @@ internal abstract class AbstractTransformer(
             }
         }
 
-        return singleTransformedDataDescriptor(createData(), metadata)
+        return singleTransformedDataDescriptor(transformedWritableData, metadata)
     }
 
     private fun convert(inputStream: InputStream, mediaType: MediaType, outputStream: OutputStream, targetMediaType: MediaType) {

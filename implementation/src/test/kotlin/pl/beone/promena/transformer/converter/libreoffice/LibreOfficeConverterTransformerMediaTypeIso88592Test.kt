@@ -3,12 +3,11 @@ package pl.beone.promena.transformer.converter.libreoffice
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import pl.beone.lib.junit.jupiter.external.DockerExtension
-import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_CSV
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_HTML
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
-import pl.beone.promena.transformer.converter.libreoffice.model.Resource
-import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
+import pl.beone.promena.transformer.applicationmodel.mediatype.withCharset
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.ISO_8859_2.Plain
 import java.nio.charset.Charset
 
 @ExtendWith(DockerExtension::class)
@@ -20,34 +19,22 @@ class LibreOfficeConverterTransformerMediaTypeIso88592Test {
 
     @Test
     fun transform_textPlain() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.ISO_8859_2.Plain.TXT),
-            MediaType.of(TEXT_PLAIN.mimeType, charset)
-        )
+        test(Plain.TXT, TEXT_PLAIN.withCharset(charset))
     }
 
     @Test
     fun transform_textCsv() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.ISO_8859_2.Plain.CSV),
-            MediaType.of(TEXT_CSV.mimeType, charset)
-        )
+        test(Plain.CSV, TEXT_CSV.withCharset(charset))
     }
 
     @Test
     fun transform_LibreOfficeWriter_textPlain() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.ISO_8859_2.Plain.LibreOfficeWriter.TXT),
-            MediaType.of(TEXT_PLAIN.mimeType, charset)
-        )
+        test(Plain.LibreOfficeWriter.TXT, TEXT_PLAIN.withCharset(charset))
     }
 
     // Contains charset=iso-8859-2 in meta tag. LO handles this case correctly
     @Test
     fun transform_LibreOfficeWriter_textHtml() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.ISO_8859_2.Plain.LibreOfficeWriter.HTML),
-            MediaType.of(TEXT_HTML.mimeType, charset)
-        )
+        test(Plain.LibreOfficeWriter.HTML, TEXT_HTML.withCharset(charset))
     }
 }

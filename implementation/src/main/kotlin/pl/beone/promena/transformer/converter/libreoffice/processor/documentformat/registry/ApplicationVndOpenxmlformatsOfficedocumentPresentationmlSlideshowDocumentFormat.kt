@@ -1,4 +1,4 @@
-package pl.beone.promena.transformer.converter.libreoffice.transformer.documentformat.registry
+package pl.beone.promena.transformer.converter.libreoffice.processor.documentformat.registry
 
 import org.jodconverter.document.DefaultDocumentFormatRegistry
 import org.jodconverter.document.DocumentFormat

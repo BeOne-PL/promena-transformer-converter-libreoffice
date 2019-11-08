@@ -19,151 +19,102 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstant
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_HTML
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_XML
-import pl.beone.promena.transformer.converter.libreoffice.model.Resource
-import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Plain
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Presentation
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Spreadsheet
+import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Text
 
 @ExtendWith(DockerExtension::class)
 class LibreOfficeConverterTransformerMediaTypeUtf8Test {
 
     @Test
     fun transform_textCsv() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.CSV),
-            TEXT_CSV
-        )
+        test(Plain.CSV, TEXT_CSV)
     }
 
     @Test
     fun transform_textHtm() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.HTM),
-            TEXT_HTML
-        )
+        test(Plain.HTM, TEXT_HTML)
     }
 
     @Test
     fun transform_textHtml() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.HTML),
-            TEXT_HTML
-        )
+        test(Plain.HTML, TEXT_HTML)
     }
 
     @Test
     fun transform_applicationRtf() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.RTF),
-            APPLICATION_RTF
-        )
+        test(Plain.RTF, APPLICATION_RTF)
     }
 
     @Test
     fun transform_textPlain() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.TXT),
-            TEXT_PLAIN
-        )
+        test(Plain.TXT, TEXT_PLAIN)
     }
 
     @Test
     fun transform_applicationXml() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.XML),
-            APPLICATION_XML
-        )
+        test(Plain.XML, APPLICATION_XML)
     }
 
     @Test
     fun transform_textXml() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Plain.XML),
-            TEXT_XML
-        )
+        test(Plain.XML, TEXT_XML)
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentPresentation() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.ODP),
-            APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
-        )
+        test(Presentation.ODP, APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION)
     }
 
     @Test
     fun transform_applicationVndMsPowerpoint() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.PPT),
-            APPLICATION_VND_MS_POWERPOINT
-        )
+        test(Presentation.PPT, APPLICATION_VND_MS_POWERPOINT)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Presentation.PPTX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
-        )
+        test(Presentation.PPTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION)
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentSpreadsheet() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.ODS),
-            APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET
-        )
+        test(Spreadsheet.ODS, APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET)
     }
 
     @Test
     fun transform_applicationVndMsExcel() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.XLS),
-            APPLICATION_VND_MS_EXCEL
-        )
+        test(Spreadsheet.XLS, APPLICATION_VND_MS_EXCEL)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Spreadsheet.XLSX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
-        )
+        test(Spreadsheet.XLSX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET)
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentText() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.ODT),
-            APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT
-        )
+        test(Text.ODT, APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT)
     }
 
     @Test
     fun transform_applicationMsword() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.DOC),
-            APPLICATION_MSWORD
-        )
+        test(Text.DOC, APPLICATION_MSWORD)
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.DOCX),
-            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
-        )
+        test(Text.DOCX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT)
     }
 
     @Test
     fun transform_applicationPdf() {
-        memoryTest(
-            getResourceAsBytes(Resource.MediaType.Path.UTF_8.Text.PDF),
-            APPLICATION_PDF
-        )
+        test(Text.PDF, APPLICATION_PDF)
     }
 }

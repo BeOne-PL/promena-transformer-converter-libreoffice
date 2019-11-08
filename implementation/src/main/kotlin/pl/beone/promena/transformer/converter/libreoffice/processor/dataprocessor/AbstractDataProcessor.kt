@@ -1,4 +1,4 @@
-package pl.beone.promena.transformer.converter.libreoffice.transformer.dataprocessor
+package pl.beone.promena.transformer.converter.libreoffice.processor.dataprocessor
 
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.contract.model.data.Data
