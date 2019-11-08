@@ -1,5 +1,6 @@
 package pl.beone.promena.transformer.converter.libreoffice.processor
 
+import kotlinx.coroutines.asCoroutineDispatcher
 import org.jodconverter.LocalConverter
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.contract.data.DataDescriptor
@@ -13,10 +14,10 @@ import pl.beone.promena.transformer.converter.libreoffice.manager.OfficeManagerC
 import pl.beone.promena.transformer.converter.libreoffice.processor.dataprocessor.TextPlainAndTextCsvOtherThanUtf8DataProcessor
 import pl.beone.promena.transformer.converter.libreoffice.processor.documentformat.DocumentFormatManager
 import pl.beone.promena.transformer.converter.libreoffice.processor.documentformat.registry.*
+import pl.beone.promena.transformer.util.execute
 import java.io.InputStream
 import java.io.OutputStream
 import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
 
 internal class Processor(
     private val defaultParameters: LibreOfficeConverterTransformerDefaultParameters,
@@ -51,6 +52,8 @@ internal class Processor(
         )
     }
 
+    private val executionDispatcher = Executors.newSingleThreadExecutor().asCoroutineDispatcher()
+
     fun process(
         singleDataDescriptor: DataDescriptor.Single,
         targetMediaType: MediaType,
@@ -63,14 +66,8 @@ internal class Processor(
 
         processData(data, mediaType).getInputStream().use { inputStream ->
             transformedWritableData.getOutputStream().use { outputStream ->
-                val timeout = parameters.getTimeoutOrNull() ?: defaultParameters.timeout
-                if (timeout != null) {
-                    Executors.newSingleThreadExecutor()
-                        .submit { convert(inputStream, mediaType, outputStream, targetMediaType) }
-                        // FIXME it only interrupts this thread but not the running LibreOffice process
-                        .get(timeout.toMillis(), TimeUnit.MILLISECONDS)
-                } else {
-                    convert(inputStream, mediaType, outputStream, targetMediaType)
+                execute(parameters.getTimeoutOrNull() ?: defaultParameters.timeout, executionDispatcher) {
+                    convert(inputStream, mediaType, targetMediaType, outputStream)
                 }
             }
         }
@@ -78,7 +75,7 @@ internal class Processor(
         return singleTransformedDataDescriptor(transformedWritableData, metadata)
     }
 
-    private fun convert(inputStream: InputStream, mediaType: MediaType, outputStream: OutputStream, targetMediaType: MediaType) {
+    private fun convert(inputStream: InputStream, mediaType: MediaType, targetMediaType: MediaType, outputStream: OutputStream) {
         LocalConverter.make(officeManagerCoordinator.getManager())
             .convert(inputStream)
             .`as`(DocumentFormatManager.getDocumentFormat(mediaType))

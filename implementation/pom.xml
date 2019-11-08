@@ -34,6 +34,11 @@
         </dependency>
 
         <dependency>
+            <groupId>pl.beone.promena.base</groupId>
+            <artifactId>promena-transformer-util</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>pl.beone.promena.transformer</groupId>
             <artifactId>converter-libreoffice-application-model</artifactId>
             <version>${converter-libreoffice.version}</version>

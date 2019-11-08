@@ -25,7 +25,7 @@ private object MemoryCommunicationWritableDataCreator : CommunicationWritableDat
     override fun create(communicationParameters: CommunicationParameters): WritableData = emptyMemoryWritableData()
 }
 
-fun createLibreOfficeConverterTransformer(): LibreOfficeConverterTransformer =
+internal fun createLibreOfficeConverterTransformer(): LibreOfficeConverterTransformer =
     LibreOfficeConverterTransformer(
         LibreOfficeConverterTransformerSettings(),
         LibreOfficeConverterTransformerDefaultParameters(),
