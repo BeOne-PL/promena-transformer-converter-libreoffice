@@ -6,6 +6,8 @@ import pl.beone.lib.junit.jupiter.external.DockerExtension
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_PDF
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource
+import pl.beone.promena.transformer.converter.libreoffice.util.createLibreOfficeConverterTransformer
+import pl.beone.promena.transformer.converter.libreoffice.util.test
 import java.util.concurrent.Executors
 
 @ExtendWith(DockerExtension::class)
@@ -26,7 +28,13 @@ class LibreOfficeConverterTransformerMultithreadingTest {
 
         (0 until iterations).map {
             executors.submit {
-                test(byteArray, mediaType, targetMediaType, transformers[it % transformers.size], assertText = "Structural Elements")
+                test(
+                    byteArray,
+                    mediaType,
+                    targetMediaType,
+                    transformers[it % transformers.size],
+                    assertText = "Structural Elements"
+                )
             }
         }.forEach { it.get() }
     }

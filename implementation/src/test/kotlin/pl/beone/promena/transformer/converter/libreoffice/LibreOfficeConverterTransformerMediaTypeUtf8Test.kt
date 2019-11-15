@@ -23,6 +23,7 @@ import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaTy
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Presentation
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Spreadsheet
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Text
+import pl.beone.promena.transformer.converter.libreoffice.util.test
 
 @ExtendWith(DockerExtension::class)
 class LibreOfficeConverterTransformerMediaTypeUtf8Test {
@@ -76,7 +77,10 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation() {
-        test(Presentation.PPTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION)
+        test(
+            Presentation.PPTX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
+        )
     }
 
     // ***
@@ -93,7 +97,10 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet() {
-        test(Spreadsheet.XLSX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET)
+        test(
+            Spreadsheet.XLSX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
+        )
     }
 
     // ***
@@ -110,7 +117,10 @@ class LibreOfficeConverterTransformerMediaTypeUtf8Test {
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument() {
-        test(Text.DOCX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT)
+        test(
+            Text.DOCX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
+        )
     }
 
     @Test

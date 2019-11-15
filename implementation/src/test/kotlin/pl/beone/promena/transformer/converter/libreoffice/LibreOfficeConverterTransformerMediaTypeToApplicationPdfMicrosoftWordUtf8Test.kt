@@ -30,6 +30,7 @@ import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaTy
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Presentation
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Spreadsheet
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Text
+import pl.beone.promena.transformer.converter.libreoffice.util.test
 
 @ExtendWith(DockerExtension::class)
 class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8Test {
@@ -73,65 +74,107 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
 
     @Test
     fun transform_applicationVndOasisOpendocumentPresentation() {
-        test(Presentation.MicrosoftPowerPoint.ODP, APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION)
+        test(
+            Presentation.MicrosoftPowerPoint.ODP,
+            APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
+        )
     }
 
     @Test
     fun transform_applicationVndMsPowerpoint2() {
-        test(Presentation.MicrosoftPowerPoint.POT, APPLICATION_VND_MS_POWERPOINT)
+        test(
+            Presentation.MicrosoftPowerPoint.POT,
+            APPLICATION_VND_MS_POWERPOINT
+        )
     }
 
     @Test
     fun transform_applicationVndMsPowerpointTemplateMacroenabled12() {
-        test(Presentation.MicrosoftPowerPoint.POTM, APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12)
+        test(
+            Presentation.MicrosoftPowerPoint.POTM,
+            APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12
+        )
 
-        test(Presentation.MicrosoftPowerPoint.POTM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12)
+        test(
+            Presentation.MicrosoftPowerPoint.POTM,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12
+        )
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlTemplate() {
-        test(Presentation.MicrosoftPowerPoint.POTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE)
+        test(
+            Presentation.MicrosoftPowerPoint.POTX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE
+        )
     }
 
     @Test
     fun transform_applicationVndMsPowerpoint3() {
-        test(Presentation.MicrosoftPowerPoint.PPS, APPLICATION_VND_MS_POWERPOINT)
+        test(
+            Presentation.MicrosoftPowerPoint.PPS,
+            APPLICATION_VND_MS_POWERPOINT
+        )
     }
 
     @Test
     fun transform_applicationVndMsPowerpointSlideshowMacroenabled12() {
-        test(Presentation.MicrosoftPowerPoint.PPSM, APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12)
+        test(
+            Presentation.MicrosoftPowerPoint.PPSM,
+            APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
+        )
 
-        test(Presentation.MicrosoftPowerPoint.PPSM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12)
+        test(
+            Presentation.MicrosoftPowerPoint.PPSM,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12
+        )
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlSlideshow() {
-        test(Presentation.MicrosoftPowerPoint.PPSX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW)
+        test(
+            Presentation.MicrosoftPowerPoint.PPSX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW
+        )
     }
 
     @Test
     fun transform_applicationVndMsPowerpoint() {
-        test(Presentation.MicrosoftPowerPoint.PPT, APPLICATION_VND_MS_POWERPOINT)
+        test(
+            Presentation.MicrosoftPowerPoint.PPT,
+            APPLICATION_VND_MS_POWERPOINT
+        )
     }
 
     @Test
     fun transform_applicationVndMsPowerpointPresentationMacroenabled12() {
-        test(Presentation.MicrosoftPowerPoint.PPTM, APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12)
+        test(
+            Presentation.MicrosoftPowerPoint.PPTM,
+            APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
+        )
 
-        test(Presentation.MicrosoftPowerPoint.PPTM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12)
+        test(
+            Presentation.MicrosoftPowerPoint.PPTM,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
+        )
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation() {
-        test(Presentation.MicrosoftPowerPoint.PPTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION)
+        test(
+            Presentation.MicrosoftPowerPoint.PPTX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
+        )
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentSpreadsheet() {
-        test(Spreadsheet.MicrosoftExcel.ODS, APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET)
+        test(
+            Spreadsheet.MicrosoftExcel.ODS,
+            APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET
+        )
     }
 
     @Test
@@ -141,26 +184,44 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
 
     @Test
     fun transform_applicationVndMsExcelSheetMacroEnabled12() {
-        test(Spreadsheet.MicrosoftExcel.XLSM, APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12)
+        test(
+            Spreadsheet.MicrosoftExcel.XLSM,
+            APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
+        )
 
-        test(Spreadsheet.MicrosoftExcel.XLSM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12)
+        test(
+            Spreadsheet.MicrosoftExcel.XLSM,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
+        )
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet() {
-        test(Spreadsheet.MicrosoftExcel.XLSX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET)
+        test(
+            Spreadsheet.MicrosoftExcel.XLSX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
+        )
     }
 
     @Test
     fun transform_applicationVndMsExcelTemplateMacroEnabled12() {
-        test(Spreadsheet.MicrosoftExcel.XLTM, APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12)
+        test(
+            Spreadsheet.MicrosoftExcel.XLTM,
+            APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12
+        )
 
-        test(Spreadsheet.MicrosoftExcel.XLTM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12)
+        test(
+            Spreadsheet.MicrosoftExcel.XLTM,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12
+        )
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplate() {
-        test(Spreadsheet.MicrosoftExcel.XLTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE)
+        test(
+            Spreadsheet.MicrosoftExcel.XLTX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE
+        )
     }
 
     // ***
@@ -177,7 +238,10 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfMicrosoftWordUtf8T
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument() {
-        test(Text.MicrosoftWord.DOCX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT)
+        test(
+            Text.MicrosoftWord.DOCX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
+        )
     }
 
     @Test

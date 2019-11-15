@@ -1,4 +1,4 @@
-package pl.beone.promena.transformer.converter.libreoffice
+package pl.beone.promena.transformer.converter.libreoffice.util
 
 import io.kotlintest.matchers.collections.shouldHaveSize
 import io.kotlintest.matchers.string.shouldContain
@@ -15,7 +15,9 @@ import pl.beone.promena.transformer.contract.data.singleDataDescriptor
 import pl.beone.promena.transformer.contract.model.Parameters
 import pl.beone.promena.transformer.contract.model.data.Data
 import pl.beone.promena.transformer.contract.model.data.WritableData
-import pl.beone.promena.transformer.converter.libreoffice.util.getResourceAsBytes
+import pl.beone.promena.transformer.converter.libreoffice.LibreOfficeConverterTransformer
+import pl.beone.promena.transformer.converter.libreoffice.LibreOfficeConverterTransformerDefaultParameters
+import pl.beone.promena.transformer.converter.libreoffice.LibreOfficeConverterTransformerSettings
 import pl.beone.promena.transformer.internal.model.data.memory.emptyMemoryWritableData
 import pl.beone.promena.transformer.internal.model.data.memory.toMemoryData
 import pl.beone.promena.transformer.internal.model.metadata.emptyMetadata
@@ -25,25 +27,33 @@ private object MemoryCommunicationWritableDataCreator : CommunicationWritableDat
     override fun create(communicationParameters: CommunicationParameters): WritableData = emptyMemoryWritableData()
 }
 
-internal fun createLibreOfficeConverterTransformer(): LibreOfficeConverterTransformer =
+internal fun createLibreOfficeConverterTransformer(
+    settings: LibreOfficeConverterTransformerSettings = LibreOfficeConverterTransformerSettings(
+        home = "/opt/libreoffice6.3",
+        startingPort = 5000
+    ),
+    defaultParameters: LibreOfficeConverterTransformerDefaultParameters = LibreOfficeConverterTransformerDefaultParameters(),
+    communicationParameters: CommunicationParameters = mockk(),
+    communicationWritableDataCreator: CommunicationWritableDataCreator = MemoryCommunicationWritableDataCreator
+): LibreOfficeConverterTransformer =
     LibreOfficeConverterTransformer(
-        LibreOfficeConverterTransformerSettings(),
-        LibreOfficeConverterTransformerDefaultParameters(),
-        mockk(),
-        MemoryCommunicationWritableDataCreator
+        settings,
+        defaultParameters,
+        communicationParameters,
+        communicationWritableDataCreator
     )
 
 internal fun test(
     resourcePath: String,
     mediaType: MediaType,
     targetMediaType: MediaType = MediaTypeConstants.APPLICATION_PDF,
-    libreOfficeConverterTransformer: LibreOfficeConverterTransformer = createLibreOfficeConverterTransformer(),
+    transformer: LibreOfficeConverterTransformer = createLibreOfficeConverterTransformer(),
     parameters: Parameters = emptyParameters(),
     assertText: String = "Zażółć gęślą jaźń"
 ) {
     val data = getResourceAsBytes(resourcePath).toMemoryData()
 
-    libreOfficeConverterTransformer
+    transformer
         .transform(singleDataDescriptor(data, mediaType, emptyMetadata()), targetMediaType, parameters).let { transformedDataDescriptor ->
             withClue("Transformed data should contain only <1> element") { transformedDataDescriptor.descriptors shouldHaveSize 1 }
 

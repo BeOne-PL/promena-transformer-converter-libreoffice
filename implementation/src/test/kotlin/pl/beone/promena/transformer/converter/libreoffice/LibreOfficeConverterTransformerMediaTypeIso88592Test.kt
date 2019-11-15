@@ -8,6 +8,7 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstant
 import pl.beone.promena.transformer.applicationmodel.mediatype.MediaTypeConstants.TEXT_PLAIN
 import pl.beone.promena.transformer.applicationmodel.mediatype.withCharset
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.ISO_8859_2.Plain
+import pl.beone.promena.transformer.converter.libreoffice.util.test
 import java.nio.charset.Charset
 
 @ExtendWith(DockerExtension::class)

@@ -31,6 +31,7 @@ import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaTy
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Presentation
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Spreadsheet
 import pl.beone.promena.transformer.converter.libreoffice.model.Resource.MediaType.Path.UTF_8.Text
+import pl.beone.promena.transformer.converter.libreoffice.util.test
 
 @ExtendWith(DockerExtension::class)
 class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Test {
@@ -74,12 +75,18 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Tes
 
     @Test
     fun transform_applicationVndOasisOpendocumentPresentation() {
-        test(Presentation.LibreOfficeImpress.ODP, APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION)
+        test(
+            Presentation.LibreOfficeImpress.ODP,
+            APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION
+        )
     }
 
     @Test
     fun transform_applicationVndOasisOpendocumentPresentationTemplate() {
-        test(Presentation.LibreOfficeImpress.OTP, APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION_TEMPLATE)
+        test(
+            Presentation.LibreOfficeImpress.OTP,
+            APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION_TEMPLATE
+        )
     }
 
     @Test
@@ -89,7 +96,10 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Tes
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlTemplate() {
-        test(Presentation.LibreOfficeImpress.POTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE)
+        test(
+            Presentation.LibreOfficeImpress.POTX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE
+        )
     }
 
     @Test
@@ -99,7 +109,10 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Tes
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlSlideshow() {
-        test(Presentation.LibreOfficeImpress.PPSX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW)
+        test(
+            Presentation.LibreOfficeImpress.PPSX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW
+        )
     }
 
     @Test
@@ -109,26 +122,41 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Tes
 
     @Test
     fun transform_applicationVndMsPowerpointPresentationMacroenabled12() {
-        test(Presentation.LibreOfficeImpress.PPTM, APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12)
+        test(
+            Presentation.LibreOfficeImpress.PPTM,
+            APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
+        )
 
-        test(Presentation.LibreOfficeImpress.PPTM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12)
+        test(
+            Presentation.LibreOfficeImpress.PPTM,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12
+        )
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation() {
-        test(Presentation.LibreOfficeImpress.PPTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION)
+        test(
+            Presentation.LibreOfficeImpress.PPTX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION
+        )
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentSpreadsheet() {
-        test(Spreadsheet.LibreOfficeCalc.ODS, APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET)
+        test(
+            Spreadsheet.LibreOfficeCalc.ODS,
+            APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET
+        )
     }
 
     @Test
     fun transform_applicationVndOasisOpendocumentSpreadsheetTemplate() {
-        test(Spreadsheet.LibreOfficeCalc.OTS, APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET_TEMPLATE)
+        test(
+            Spreadsheet.LibreOfficeCalc.OTS,
+            APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET_TEMPLATE
+        )
     }
 
     @Test
@@ -143,14 +171,23 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Tes
 
     @Test
     fun transform_applicationVndMsExcelSheetMacroEnabled12() {
-        test(Spreadsheet.LibreOfficeCalc.XLSM, APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12)
+        test(
+            Spreadsheet.LibreOfficeCalc.XLSM,
+            APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
+        )
 
-        test(Spreadsheet.LibreOfficeCalc.XLSM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12)
+        test(
+            Spreadsheet.LibreOfficeCalc.XLSM,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12
+        )
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet() {
-        test(Spreadsheet.LibreOfficeCalc.XLSX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET)
+        test(
+            Spreadsheet.LibreOfficeCalc.XLSX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET
+        )
     }
 
     @Test
@@ -160,14 +197,20 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Tes
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentSpreadsheetmlTemplate() {
-        test(Spreadsheet.LibreOfficeCalc.XLTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE)
+        test(
+            Spreadsheet.LibreOfficeCalc.XLTX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE
+        )
     }
 
     // ***
 
     @Test
     fun transform_applicationVndOasisOpendocumentText() {
-        test(Text.LibreOfficeWriter.ODT, APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT)
+        test(
+            Text.LibreOfficeWriter.ODT,
+            APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT
+        )
     }
 
     @Test
@@ -177,14 +220,23 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Tes
 
     @Test
     fun transform_applicationVndMsWordDocumentMacroenabled12() {
-        test(Text.LibreOfficeWriter.DOCM, APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12)
+        test(
+            Text.LibreOfficeWriter.DOCM,
+            APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12
+        )
 
-        test(Text.LibreOfficeWriter.DOCM, AlfrescoMediaTypeConstants.APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12)
+        test(
+            Text.LibreOfficeWriter.DOCM,
+            AlfrescoMediaTypeConstants.APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12
+        )
     }
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument() {
-        test(Text.LibreOfficeWriter.DOCX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT)
+        test(
+            Text.LibreOfficeWriter.DOCX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT
+        )
     }
 
     @Test
@@ -194,6 +246,9 @@ class LibreOfficeConverterTransformerMediaTypeToApplicationPdfLibreOfficeUtf8Tes
 
     @Test
     fun transform_applicationVndOpenxmlformatsOfficedocumentWordprocessingmlTemplate() {
-        test(Text.LibreOfficeWriter.DOTX, APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE)
+        test(
+            Text.LibreOfficeWriter.DOTX,
+            APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE
+        )
     }
 }

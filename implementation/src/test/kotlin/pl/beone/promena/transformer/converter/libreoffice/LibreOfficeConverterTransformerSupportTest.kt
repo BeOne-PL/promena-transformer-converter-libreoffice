@@ -8,6 +8,7 @@ import pl.beone.promena.transformer.applicationmodel.mediatype.MediaType
 import pl.beone.promena.transformer.contract.data.DataDescriptor
 import pl.beone.promena.transformer.contract.model.Parameters
 import pl.beone.promena.transformer.converter.libreoffice.applicationmodel.LibreOfficeConverterSupport
+import pl.beone.promena.transformer.converter.libreoffice.util.createLibreOfficeConverterTransformer
 
 @ExtendWith(DockerExtension::class)
 class LibreOfficeConverterTransformerSupportTest {
@@ -21,7 +22,7 @@ class LibreOfficeConverterTransformerSupportTest {
         mockkStatic(LibreOfficeConverterSupport::class)
         every { LibreOfficeConverterSupport.isSupported(dataDescriptor, targetMediaType, parameters) } just Runs
 
-        LibreOfficeConverterTransformer(LibreOfficeConverterTransformerSettings(), LibreOfficeConverterTransformerDefaultParameters(), mockk(), mockk())
+        createLibreOfficeConverterTransformer()
             .isSupported(dataDescriptor, targetMediaType, parameters)
 
         verify(exactly = 1) { LibreOfficeConverterSupport.isSupported(dataDescriptor, targetMediaType, parameters) }
