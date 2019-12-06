@@ -9,10 +9,10 @@ class LibreOfficeConverterDslTest {
 
     @Test
     fun libreOfficeConverterTransformation_() {
-        libreOfficeConverterTransformation().let {
-            it.transformerId shouldBe TRANSFORMER_ID
-            it.targetMediaType shouldBe APPLICATION_PDF
-            it.parameters.getAll().size shouldBe 0
+        with(libreOfficeConverterTransformation()) {
+            transformerId shouldBe TRANSFORMER_ID
+            targetMediaType shouldBe APPLICATION_PDF
+            parameters.getAll().size shouldBe 0
         }
     }
 }

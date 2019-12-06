@@ -29,6 +29,6 @@ internal object DocumentFormatManager {
         try {
             DefaultDocumentFormatRegistry.getFormatByMediaType(mediaType.mimeType)
         } catch (e: Exception) {
-            throw IllegalStateException("There is no DocumentFormat in registry for <$mediaType>")
+            error("There is no DocumentFormat in registry for <$mediaType>")
         }
 }

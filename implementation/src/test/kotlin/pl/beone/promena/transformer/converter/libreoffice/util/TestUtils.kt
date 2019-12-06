@@ -53,15 +53,16 @@ internal fun test(
 ) {
     val data = getResourceAsBytes(resourcePath).toMemoryData()
 
-    transformer
-        .transform(singleDataDescriptor(data, mediaType, emptyMetadata()), targetMediaType, parameters).let { transformedDataDescriptor ->
-            withClue("Transformed data should contain only <1> element") { transformedDataDescriptor.descriptors shouldHaveSize 1 }
+    with(
+        transformer.transform(singleDataDescriptor(data, mediaType, emptyMetadata()), targetMediaType, parameters)
+    ) {
+        withClue("Transformed data should contain only <1> element") { descriptors shouldHaveSize 1 }
 
-            transformedDataDescriptor.descriptors[0].let {
-                it.data.readText() shouldContain assertText
-                it.metadata shouldBe emptyMetadata()
-            }
+        with(descriptors[0]) {
+            this.data.readText() shouldContain assertText
+            metadata shouldBe emptyMetadata()
         }
+    }
 }
 
 private fun Data.readText(): String =
