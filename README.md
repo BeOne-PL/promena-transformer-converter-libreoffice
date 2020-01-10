@@ -1,7 +1,7 @@
 # Promena Transformer - `converter - LibreOffice`
 This transformer provides functionality to convert a document from one format to a `application/pdf` document using LibreOffice 6.3.1.2.
 
-Visit [Promena#Transformers](https://gitlab.office.beone.pl/promena/promena#transformers) to understand the repository structure.
+Visit [Promena#Transformer](https://gitlab.office.beone.pl/promena/promena#transformer) to understand the repository structure.
 
 ## Transformation [`LibreOfficeConverterDsl`](./application-model/src/main/kotlin/pl/beone/promena/transformer/converter/libreoffice/applicationmodel/LibreOfficeConverterDsl.kt)
 The [`DataDescriptor`](https://gitlab.office.beone.pl/promena/promena/blob/master/base/promena-transformer/contract/src/main/kotlin/pl/beone/promena/transformer/contract/data/DataDescriptor.kt) has to contain at least one descriptor. If more than one descriptor is passed, the transformation will be performed on each of them separately.
