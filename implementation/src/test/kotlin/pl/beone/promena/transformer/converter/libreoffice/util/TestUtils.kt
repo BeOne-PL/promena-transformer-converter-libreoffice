@@ -29,7 +29,7 @@ private object MemoryCommunicationWritableDataCreator : CommunicationWritableDat
 
 internal fun createLibreOfficeConverterTransformer(
     settings: LibreOfficeConverterTransformerSettings = LibreOfficeConverterTransformerSettings(
-        home = "/opt/libreoffice6.3",
+        home = "/opt/libreoffice6.4",
         startingPort = 5000
     ),
     defaultParameters: LibreOfficeConverterTransformerDefaultParameters = LibreOfficeConverterTransformerDefaultParameters(),

@@ -15,7 +15,7 @@ class LibreOfficeConverterTransformerConfigurationContextTest {
     fun `setting context _ default`() {
         val environment = createEnvironment(
             mapOf(
-                "transformer.pl.beone.promena.transformer.converter.libreoffice.settings.home" to "/opt/libreoffice6.3",
+                "transformer.pl.beone.promena.transformer.converter.libreoffice.settings.home" to "/opt/libreoffice6.4",
                 "transformer.pl.beone.promena.transformer.converter.libreoffice.settings.startingPort" to "5000",
 
                 "transformer.pl.beone.promena.transformer.converter.libreoffice.default.parameters.timeout" to ""
@@ -24,7 +24,7 @@ class LibreOfficeConverterTransformerConfigurationContextTest {
 
         val applicationContext = createConfigApplicationContext(environment, LibreOfficeConverterTransformerConfigurationContext::class.java)
         with(applicationContext.getBean(LibreOfficeConverterTransformerSettings::class.java)) {
-            home shouldBe "/opt/libreoffice6.3"
+            home shouldBe "/opt/libreoffice6.4"
             startingPort shouldBe 5000
         }
         applicationContext.getBean(LibreOfficeConverterTransformerDefaultParameters::class.java)
@@ -35,7 +35,7 @@ class LibreOfficeConverterTransformerConfigurationContextTest {
     fun `setting context _ all`() {
         val environment = createEnvironment(
             mapOf(
-                "transformer.pl.beone.promena.transformer.converter.libreoffice.settings.home" to "/opt/libreoffice6.3",
+                "transformer.pl.beone.promena.transformer.converter.libreoffice.settings.home" to "/opt/libreoffice6.4",
                 "transformer.pl.beone.promena.transformer.converter.libreoffice.settings.startingPort" to "5000",
 
                 "transformer.pl.beone.promena.transformer.converter.libreoffice.default.parameters.timeout" to "5m"
@@ -44,7 +44,7 @@ class LibreOfficeConverterTransformerConfigurationContextTest {
 
         val applicationContext = createConfigApplicationContext(environment, LibreOfficeConverterTransformerConfigurationContext::class.java)
         with(applicationContext.getBean(LibreOfficeConverterTransformerSettings::class.java)) {
-            home shouldBe "/opt/libreoffice6.3"
+            home shouldBe "/opt/libreoffice6.4"
             startingPort shouldBe 5000
         }
         applicationContext.getBean(LibreOfficeConverterTransformerDefaultParameters::class.java)

@@ -47,7 +47,7 @@ The [`DataDescriptor`](https://github.com/BeOne-PL/promena/blob/master/base/prom
 <dependency>
     <groupId>pl.beone.promena.transformer</groupId>
     <artifactId>converter-libreoffice-configuration</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -56,7 +56,7 @@ The [`DataDescriptor`](https://github.com/BeOne-PL/promena/blob/master/base/prom
 <dependency>
     <groupId>pl.beone.promena.transformer</groupId>
     <artifactId>converter-libreoffice</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -65,7 +65,7 @@ The [`DataDescriptor`](https://github.com/BeOne-PL/promena/blob/master/base/prom
 transformer.pl.beone.promena.transformer.converter.libreoffice.LibreOfficeConverterTransformer.priority=1
 transformer.pl.beone.promena.transformer.converter.libreoffice.LibreOfficeConverterTransformer.actors=1
 
-transformer.pl.beone.promena.transformer.converter.libreoffice.settings.home=/opt/libreoffice6.3
+transformer.pl.beone.promena.transformer.converter.libreoffice.settings.home=/opt/libreoffice6.4
 transformer.pl.beone.promena.transformer.converter.libreoffice.settings.startingPort=5000
 
 transformer.pl.beone.promena.transformer.converter.libreoffice.default.parameters.timeout=
