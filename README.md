@@ -1,5 +1,5 @@
 # Promena Transformer - `converter - LibreOffice`
-This transformer provides functionality to convert a document from one format to a `application/pdf` document using LibreOffice 6.3.1.2.
+This transformer provides functionality to convert a document from one format to a `application/pdf` document using LibreOffice 6.4.0.2.
 
 Visit [Promena#Transformer](https://github.com/BeOne-PL/promena#transformer) to understand the repository structure.
 
