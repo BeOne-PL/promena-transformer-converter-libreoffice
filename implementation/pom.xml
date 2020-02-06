@@ -13,10 +13,10 @@
 
     <groupId>pl.beone.promena.transformer</groupId>
     <artifactId>converter-libreoffice</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <properties>
-        <converter-libreoffice.version>1.0.1</converter-libreoffice.version>
+        <converter-libreoffice.version>1.0.2</converter-libreoffice.version>
 
         <jodconverter.version>4.2.2</jodconverter.version>
 

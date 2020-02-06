@@ -47,7 +47,7 @@ The [`DataDescriptor`](https://github.com/BeOne-PL/promena/blob/master/base/prom
 <dependency>
     <groupId>pl.beone.promena.transformer</groupId>
     <artifactId>converter-libreoffice-configuration</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -56,7 +56,7 @@ The [`DataDescriptor`](https://github.com/BeOne-PL/promena/blob/master/base/prom
 <dependency>
     <groupId>pl.beone.promena.transformer</groupId>
     <artifactId>converter-libreoffice</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
